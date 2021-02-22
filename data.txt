@@ -1,0 +1,13 @@
+v Degree no yes - -
+v Position no research service_engineer product_engineer
+v Qualify no yes - -
+v Discovery no yes - -
+v Grade <3.5 >=3.5 - -
+v Experience <2 >=2 - -
+
+r No_Position Degree 0 - - - Position 0
+r Qualifies Degree 1 - - - Qualify 1
+r Research Degree 1 Discovery 1 - - Position 1
+r Service_Engineer Qualify 1 Grade 0 Experience 1 - Position 2
+r No_Position Qualify 1 Grade 0 Experience 0 - Position 0
+r Product_Engineer Qualify 1 Grade 1 - - Position 3

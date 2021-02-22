@@ -5,15 +5,18 @@
 #ifndef EXPERT_SYSTEM_RULELIST_H
 #define EXPERT_SYSTEM_RULELIST_H
 #include "rule.h"
-#include <vector>
+
 
 class ruleList {
 private:
-    vector<rule> conclusion_list;
+    rule[30] conclusion_list;
 
 public:
-    void set_conclusion_list();
-    rule get_conclusion();
+    ruleList();
+    ruleList(rule,rule,rule,rule);
+    string get_conclusion(int);
+    rule get_rule(int);
+
 
 };
 

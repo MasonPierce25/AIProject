@@ -87,3 +87,4 @@ string rule::get_conclusion()
 {
     return this->conclusion;
 }
+

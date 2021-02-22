@@ -4,7 +4,12 @@
 
 #include "clauseVar.h"
 
-clauseVar:: clauseVar(string val, bool conc)
+clauseVar:: clauseVar()
+{
+
+}
+
+clauseVar:: clauseVar(string &val, bool conc,)
 {
     this->value = val;
     this->is_a_conclusion = conc;
@@ -24,8 +29,13 @@ void clauseVar::set_answer(string &ans)
 };
 bool clauseVar::conclusion_or_not()
 {
-    if (this->is_a_conclusion == true)
+    if (this->is_a_conclusion)
         return true;
-    else
-        return false;
 };
+
+bool clauseVar::is_instantiated()
+{
+    if (this->instantiated)
+        return true;
+};
+

@@ -20,9 +20,11 @@ private :
 
 
 public:
-    clauseVar(string,bool);
+    clauseVar();
+    clauseVar(string&,bool);
     void set_instantiated();
     void set_answer(string&);
+    bool is_instantiated();
     bool conclusion_or_not();
 };
 

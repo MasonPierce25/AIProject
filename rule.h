@@ -19,12 +19,15 @@ private:
     bool next_rule;
     bool concluded;
 public:
+    rule();
     rule(clauseVar,clauseVar,clauseVar,clauseVar,string);
-    rule(clauseVar, clauseVar,string)
-    void add_clause();
-    void add_conclusion();
+    rule(clauseVar,clauseVar,clauseVar,string);
+    rule(clauseVar, clauseVar,string);
+    rule(clauseVar,string);
     bool check_conclusion();
+    void update_concluded();
     bool update_next_rule();
+    clauseVar get_clause(int);
 
 };
 

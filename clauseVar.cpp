@@ -9,23 +9,23 @@ clauseVar:: clauseVar(string val, bool conc)
     this->value = val;
     this->is_a_conclusion = conc;
     this->answer= "NULL";
-    this->instantiated = False;
+    this->instantiated = false;
 
 }
 
 void clauseVar::set_instantiated()
 {
-    this->instantiated = True;
+    this->instantiated = true;
 }
-void clauseVar::set_value()
-{
 
+void clauseVar::set_answer(string &ans)
+{
+    this->answer = ans;
 };
-void clauseVar::set_answer()
+bool clauseVar::conclusion_or_not()
 {
-
-};
-void clauseVar::conclusion_or_not()
-{
-
+    if (this->is_a_conclusion == true)
+        return true;
+    else
+        return false;
 };

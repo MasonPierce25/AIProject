@@ -22,9 +22,8 @@ private :
 public:
     clauseVar(string,bool);
     void set_instantiated();
-    void set_value();
-    void set_answer();
-    void conclusion_or_not();
+    void set_answer(string&);
+    bool conclusion_or_not();
 };
 
 

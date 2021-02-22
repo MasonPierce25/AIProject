@@ -24,9 +24,10 @@ public:
     rule(clauseVar,clauseVar,clauseVar,string);
     rule(clauseVar, clauseVar,string);
     rule(clauseVar,string);
-    bool check_conclusion();
+    string get_conclusion();
     void update_concluded();
     bool update_next_rule();
+    bool check_concluded();
     clauseVar get_clause(int);
 
 };

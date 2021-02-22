@@ -49,7 +49,7 @@ rule::rule(clauseVar cv1,string conc)
     this->next_rule = false;
 };
 
-bool rule:: check_conclusion()
+bool rule:: check_concluded()
 {
    if(this->concluded)
        return true;
@@ -63,7 +63,7 @@ void rule::update_concluded() // i have to tweak this to make it work for more t
 }
 bool rule:: update_next_rule()
 {
-
+//not sure i need this
 
 };
 
@@ -81,4 +81,9 @@ clauseVar rule::get_clause(int clauseNum)
         case 4:
             return this->clause4;
     }
+}
+
+string rule::get_conclusion()
+{
+    return this->conclusion;
 }

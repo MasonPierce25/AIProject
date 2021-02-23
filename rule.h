@@ -12,6 +12,7 @@ class rule {
 
 private:
     string conclusion;
+    string conclusion_value;
     clauseVar clause1;
     clauseVar clause2;
     clauseVar clause3;
@@ -20,15 +21,17 @@ private:
     bool concluded;
 public:
     rule();
-    rule(clauseVar,clauseVar,clauseVar,clauseVar,string);
-    rule(clauseVar,clauseVar,clauseVar,string);
-    rule(clauseVar, clauseVar,string);
-    rule(clauseVar&,string);
+    rule(clauseVar,clauseVar,clauseVar,clauseVar,string,string);
+    rule(clauseVar,clauseVar,clauseVar,string,string);
+    rule(clauseVar, clauseVar,string,string);
+    rule(clauseVar,string,string);
     string get_conclusion();
     void update_concluded();
     bool update_next_rule();
     bool check_concluded();
     clauseVar get_clause(int);
+    string get_conclusion_value();
+    void set_conclusion_value(string);
 
 };
 

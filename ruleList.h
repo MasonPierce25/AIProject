@@ -13,7 +13,7 @@ private:
 
 public:
     ruleList();
-    ruleList(rule,rule,rule,rule);
+    ruleList(rule,rule,rule,rule,rule,rule);
     string get_conclusion(int);
     rule get_rule(int);
 

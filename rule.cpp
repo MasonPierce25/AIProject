@@ -9,7 +9,7 @@ rule::rule()
 
 };
 
-rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,clauseVar cv4,string conc)
+rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,clauseVar cv4,string conc,string type)
 {
     this->clause1 = cv1;
     this->clause2 = cv2;
@@ -18,35 +18,39 @@ rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,clauseVar cv4,string conc)
     this->conclusion = conc;
     this->concluded = false;
     this->next_rule = false;
+    this->conclusion_value = type;
 
 };
 
 
 
-rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,string conc) {
+rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,string conc,string type) {
     this->clause1 = cv1;
     this->clause2 = cv2;
     this->clause3 = cv3;
     this->conclusion = conc;
     this->concluded = false;
     this->next_rule = false;
+    this->conclusion_value = type;
 };
 
-rule::rule(clauseVar cv1, clauseVar cv2,string conc)
+rule::rule(clauseVar cv1, clauseVar cv2,string conc,string type)
 {
     this->clause1 = cv1;
     this->clause2 = cv2;
     this->conclusion = conc;
     this->concluded = false;
     this->next_rule = false;
+    this->conclusion_value = type;
 };
 
-rule::rule(clauseVar &cv1,string conc)
+rule::rule(clauseVar cv1,string conc,string type)
 {
     this->clause1 = cv1;
     this->conclusion = conc;
     this->concluded = false;
     this->next_rule = false;
+    this->conclusion_value = type;
 };
 
 bool rule:: check_concluded()
@@ -81,10 +85,19 @@ clauseVar rule::get_clause(int clauseNum)
         case 4:
             return this->clause4;
     }
-}
+};
 
 string rule::get_conclusion()
 {
     return this->conclusion;
-}
+};
 
+string rule::get_conclusion_value()
+{
+    return this->conclusion_value;
+};
+
+void rule::set_conclusion_value(string conc_val)
+{
+    this->conclusion_value = conc_val;
+}

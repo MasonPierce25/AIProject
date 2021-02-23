@@ -12,7 +12,7 @@ class ruleStack {
 
 private:
     vector<rule> stack;
-    int top;
+
 
 public:
 
@@ -21,7 +21,6 @@ public:
     void pop();
     rule peak();
     bool is_empty();
-    bool is_full();
 };
 
 

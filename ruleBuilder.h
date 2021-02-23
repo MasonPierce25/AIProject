@@ -13,8 +13,9 @@ class ruleBuilder {
 public:
     ruleBuilder();
     void build_knowledge_base();
+    string * get_conclusion_list();
 
 };
 
-
+//must modify to read in data
 #endif //EXPERT_SYSTEM_RULEBUILDER_H

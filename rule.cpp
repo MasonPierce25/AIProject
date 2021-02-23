@@ -41,7 +41,7 @@ rule::rule(clauseVar cv1, clauseVar cv2,string conc)
     this->next_rule = false;
 };
 
-rule::rule(clauseVar cv1,string conc)
+rule::rule(clauseVar &cv1,string conc)
 {
     this->clause1 = cv1;
     this->conclusion = conc;

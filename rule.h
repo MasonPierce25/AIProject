@@ -23,7 +23,7 @@ public:
     rule(clauseVar,clauseVar,clauseVar,clauseVar,string);
     rule(clauseVar,clauseVar,clauseVar,string);
     rule(clauseVar, clauseVar,string);
-    rule(clauseVar,string);
+    rule(clauseVar&,string);
     string get_conclusion();
     void update_concluded();
     bool update_next_rule();

@@ -13,7 +13,8 @@ class inferenceEngine {
 private: string conclusion;
 public:
     inferenceEngine();
-    int check_clauses();
+    bool is_conclusion(string, string*);
+    int check_clauses(rule);
     bool update();
 
 

@@ -8,7 +8,11 @@
 #include"ruleStack.h"
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    ruleBuilder ruleBuilder1 = ruleBuilder();
+
     inferenceEngine inferenceEngine1 = inferenceEngine();
+     inferenceEngine1.run_inference_engine(1);
+
     return 0;
 }
+
+

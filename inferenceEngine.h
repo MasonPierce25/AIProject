@@ -17,6 +17,7 @@ public:
     int check_clauses(rule,bool&);
     bool check_conclusion(rule);
     bool update();
+    void run_inference_engine(int);
 
 
 };

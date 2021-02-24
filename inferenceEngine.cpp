@@ -8,6 +8,9 @@
 #include "clauseVarList.h"
 #include "ruleList.h"
 #include "ruleStack.h"
+#include "ruleBuilder.h"
+#include <iostream>
+using namespace std;
 
 inferenceEngine::inferenceEngine()
 {
@@ -176,4 +179,20 @@ int inferenceEngine::check_clauses(rule currentRule,bool &conclusionReached)
             cout << "some kind of error";//debug spot
             return 6;
         }
+};
+
+void inferenceEngine::run_inference_engine(int scenario)
+{
+    string *conc_list;
+    string input;
+
+    ruleBuilder ruleBuilder1 = ruleBuilder();
+    ruleBuilder1.build_knowledge_base();
+    ruleBuilder1.set_conclusion_list();
+    conc_list = ruleBuilder1.get_conclusion_list();
+    cout<< "Enter a conclusion";
+    cin>> input;
+    
+
+
 };

@@ -16,12 +16,12 @@ ruleBuilder:: ruleBuilder()
 
 void ruleBuilder::set_conclusion_list()
 {
-    this->conclusion_list[1] = "position";
-    this->conclusion_list[2] = "qualify";
+    this->conclusion_list[0] = "position";
+    this->conclusion_list[1] = "qualify";
+    this->conclusion_list[2] = "position";
     this->conclusion_list[3] = "position";
     this->conclusion_list[4] = "position";
     this->conclusion_list[5] = "position";
-    this->conclusion_list[6] = "position";
 };
 
 void ruleBuilder::build_knowledge_base()

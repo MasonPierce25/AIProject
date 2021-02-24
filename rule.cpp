@@ -100,4 +100,16 @@ string rule::get_conclusion_value()
 void rule::set_conclusion_value(string conc_val)
 {
     this->conclusion_value = conc_val;
-}
+};
+
+void rule::user_input(int clauseNum)
+{
+    string value;
+    clauseVar clause;
+    cout<< this->prompt;
+    clause = get_clause(clauseNum);
+    cout<<clause.get_clause();
+    cin >> value;
+    clause.set_answer(value);
+    clause.set_instantiated();
+};

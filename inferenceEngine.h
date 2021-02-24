@@ -15,6 +15,7 @@ public:
     inferenceEngine();
     bool is_conclusion(string, string*);
     int check_clauses(rule);
+    bool check_conclusion(rule);
     bool update();
 
 

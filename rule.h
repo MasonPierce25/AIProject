@@ -6,6 +6,7 @@
 #define EXPERT_SYSTEM_RULE_H
 #include <string>
 #include "clauseVar.h"
+#include<iostream>
 using namespace std;
 
 class rule {
@@ -19,6 +20,8 @@ private:
     clauseVar clause4;
     bool next_rule;
     bool concluded;
+    string prompt = "Enter value for:";
+
 public:
     rule();
     rule(clauseVar,clauseVar,clauseVar,clauseVar,string,string);
@@ -32,6 +35,7 @@ public:
     clauseVar get_clause(int);
     string get_conclusion_value();
     void set_conclusion_value(string);
+    void user_input(int);
 
 };
 

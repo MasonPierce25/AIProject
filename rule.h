@@ -30,10 +30,9 @@ public:
     rule(clauseVar, clauseVar,string,string,int);
     rule(clauseVar,string,string,int);
     string get_conclusion();
-    bool is_concluded();
+    bool check_concluded();
     void update_concluded();
     bool update_next_rule();
-    bool check_concluded();
     clauseVar get_clause(int);
     string get_conclusion_value();
     void set_conclusion_value(string);

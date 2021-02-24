@@ -25,7 +25,7 @@ bool inferenceEngine :: check_conclusion(rule r)
             if (r.get_clause(1).get_answer() == "NO")
             {
                 r.set_conclusion_value("NO");
-                r.is_concluded();
+                r.check_concluded();
                 concluded = true;
             }
             else if (r.get_clause(1).get_answer() == "YES")
@@ -41,13 +41,13 @@ bool inferenceEngine :: check_conclusion(rule r)
             if(r.get_clause(1).get_answer() == "NO")
             {
                 r.set_conclusion_value("NO");
-                r.is_concluded();
+                r.check_concluded();
                 concluded = true;
             }
             else if (r.get_clause(1).get_answer() == "YES")
             {
                 r.set_conclusion_value("YES");
-                r.is_concluded();
+                r.check_concluded();
                 concluded = true;
             }
             else
@@ -59,7 +59,7 @@ bool inferenceEngine :: check_conclusion(rule r)
             if(r.get_clause(1).get_answer() == "YES" && r.get_clause(2).get_answer()=="YES")
             {
                 r.set_conclusion_value("RESEARCH");
-                r.is_concluded();
+                r.check_concluded();
                 concluded = true;
             }
             else if ( r.get_clause(2).get_answer() == "NO")
@@ -73,7 +73,7 @@ bool inferenceEngine :: check_conclusion(rule r)
             if ((r.get_clause(1).get_answer() == "YES") && (r.get_clause(2).get_num_answer() < 3.5) && (r.get_clause(3).get_num_answer() >=2 ))
             {
                 r.set_conclusion_value("SERVICE ENGINEER");
-                r.is_concluded();
+                r.check_concluded();
                 concluded = true;
             }
             break;
@@ -85,7 +85,7 @@ bool inferenceEngine :: check_conclusion(rule r)
                 (r.get_clause(3).get_num_answer() < 2))
             {
                 r.set_conclusion_value("NO");
-                r.is_concluded();
+                r.check_concluded();
                 concluded = true;
             }
             else
@@ -100,7 +100,7 @@ bool inferenceEngine :: check_conclusion(rule r)
             if((r.get_clause(1).get_answer() == "YES") && (r.get_clause(2).get_num_answer() >= 3.5))
             {
                 r.set_conclusion_value("PRODUCT ENGINEER");
-                r.is_concluded();
+                r.check_concluded();
                 concluded = true;
             }
             else
@@ -142,7 +142,7 @@ int inferenceEngine::check_clauses(rule currentRule,bool &conclusionReached)
             if(currentRule.get_rule_num() == 1 ||currentRule.get_rule_num() == 2 || currentRule.get_rule_num() == 3 )
                 currentRule.user_input(2);
                 check_conclusion(currentRule);
-                conclusionReached = currentRule.is_concluded();
+                conclusionReached = currentRule.check_concluded();
         }
         else if(currentRule.get_rule_num() == 4 ||currentRule.get_rule_num() == 5 || currentRule.get_rule_num() == 6 )
         {
@@ -150,7 +150,7 @@ int inferenceEngine::check_clauses(rule currentRule,bool &conclusionReached)
             if(!currentRule.get_clause(3).is_instantiated())
                 currentRule.user_input_num(3);
             check_conclusion(currentRule);
-            conclusionReached = currentRule.is_concluded();
+            conclusionReached = currentRule.check_concluded();
         }
         return 3;
     }
@@ -158,7 +158,7 @@ int inferenceEngine::check_clauses(rule currentRule,bool &conclusionReached)
             (!currentRule.get_clause(2).conclusion_or_not())&& (currentRule.get_clause(2).is_instantiated()))
     {
         currentRule.check_concluded();
-        conclusionReached= currentRule.is_concluded();
+        conclusionReached= currentRule.check_concluded();
         return 4;
     }
     else if((!currentRule.get_clause(1).conclusion_or_not()) && (currentRule.get_clause(1).is_instantiated()) &&
@@ -167,11 +167,13 @@ int inferenceEngine::check_clauses(rule currentRule,bool &conclusionReached)
     {
         {
             currentRule.check_concluded();
-            conclusionReached= currentRule.is_concluded();
+            conclusionReached= currentRule.check_concluded();
             return 5;
         }
     }
     else
-        cout<< "some kind of error";//debug spot 
-
+        {
+            cout << "some kind of error";//debug spot
+            return 6;
+        }
 };

@@ -130,7 +130,7 @@ void rule::user_input_num(int clauseNum)
     clause.set_instantiated();
 };
 
-bool rule::is_concluded()
+bool rule::check_concluded()
 {
     return this->concluded;
 };

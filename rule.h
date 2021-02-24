@@ -39,6 +39,7 @@ public:
     void set_conclusion_value(string);
     void user_input(int);
     int get_rule_num();
+    void user_input_num(int);
 
 };
 

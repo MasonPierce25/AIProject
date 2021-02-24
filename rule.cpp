@@ -118,12 +118,24 @@ void rule::user_input(int clauseNum)
     clause.set_instantiated();
 };
 
+void rule::user_input_num(int clauseNum)
+{
+    int num;
+    clauseVar clause;
+    cout<< this->prompt;
+    clause = get_clause(clauseNum);
+    cout<<clause.get_clause();
+    cin >> num;
+    clause.set_num_answer(num);
+    clause.set_instantiated();
+};
+
 bool rule::is_concluded()
 {
     return this->concluded;
 };
 
-int rule:: get_rule_num(int ruleNum)
+int rule:: get_rule_num()
 {
-
+    return this->rule_num;
 };

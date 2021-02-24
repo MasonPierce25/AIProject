@@ -28,16 +28,16 @@ void ruleBuilder::build_knowledge_base()
 {
     string na = "NULL";
     clauseVar degree = clauseVar("degree", false);
-    rule rule1 = rule( degree, "position",na);
-    rule rule2 = rule( degree, "qualify",na);
+    rule rule1 = rule( degree, "position",na,1);
+    rule rule2 = rule( degree, "qualify",na,2);
     clauseVar discovery = clauseVar("discovery",false );
-    rule rule3 = rule(degree,discovery,"position",na);
+    rule rule3 = rule(degree,discovery,"position",na,3);
     clauseVar qualify = clauseVar("qualify", true);
-    clauseVar grade = clauseVar("grade", false);
-    clauseVar experience = clauseVar("experience", false);
-    rule rule4 = rule(qualify, grade, experience,"position", na);
-    rule rule5 = rule(qualify,grade,experience,"position",na);
-    rule rule6 = rule(qualify, grade,"position",na );
+    clauseVar grade = clauseVar("grade", false,0);
+    clauseVar experience = clauseVar("experience", false,0);
+    rule rule4 = rule(qualify, grade, experience,"position", na,4);
+    rule rule5 = rule(qualify,grade,experience,"position",na,5);
+    rule rule6 = rule(qualify, grade,"position",na,6 );
     ruleList r_List = ruleList(rule1,rule2,rule3,rule4,rule5,rule6);
     this->rList = r_List;
 };

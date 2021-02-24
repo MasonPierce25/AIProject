@@ -18,6 +18,15 @@ clauseVar:: clauseVar(string val, bool conc)
 
 };
 
+clauseVar:: clauseVar(string val, bool conc,int num_answer)
+{
+    this->value = val;
+    this->is_a_conclusion = conc;
+    this->num_answer= num_answer;
+    this->instantiated = false;
+
+};
+
 void clauseVar::set_instantiated()
 {
     this->instantiated = true;
@@ -47,5 +56,14 @@ string clauseVar::get_clause()
 string clauseVar::get_answer()
 {
     return this->answer;
-}
+};
 
+int clauseVar:: get_num_answer()
+{
+    return this->num_answer;
+};
+
+void clauseVar:: set_num_answer(int num)
+{
+    this->num_answer = num;
+};

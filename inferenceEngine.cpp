@@ -189,6 +189,10 @@ void inferenceEngine::run_inference_engine(int scenario)
     ruleList* rlist;
     bool initially_found;
     int scenario_num;
+    bool is_concluded;
+    int conc_list_placeholder = 0;
+    string new_conclusion= "NA";
+    string final_conclusion ="NA";
 
     ruleBuilder ruleBuilder1 = ruleBuilder();
     ruleBuilder1.build_knowledge_base();
@@ -205,8 +209,11 @@ void inferenceEngine::run_inference_engine(int scenario)
         if(conc_list[i]== input)
         {
             if(conc_list[i] == rlist->get_rule(i).get_conclusion())
+            {
                 currentRule = rlist->get_rule(i);
-            initially_found = true;
+                initially_found = true;
+            }
+            conc_list_placeholder = i;
         }
     }
     if(!initially_found)
@@ -215,13 +222,97 @@ void inferenceEngine::run_inference_engine(int scenario)
         ruleStack1.push(currentRule);
     while(!ruleStack1.is_empty())
     {
-        scenario_num = check_conclusion(ruleStack1.peak());
+        scenario_num = check_clauses(ruleStack1.peak(), is_concluded);
 
         switch(scenario_num)
         {
             case 1:
-                
+            {
+                for(int i = 0; i < 6; i++)
+                {
+                    if(ruleStack1.peak().get_clause(1).get_clause() == rlist->get_rule(i).get_conclusion())
+                        ruleStack1.push(rlist->get_rule(i));
+                };
+                break;
+            };
+
+            case 2:
+            {
+                for(int i = 0; i < 6; i++)
+                {
+                    if(ruleStack1.peak().get_clause(2).get_clause() == rlist->get_rule(i).get_conclusion())
+                        ruleStack1.push(rlist->get_rule(i));
+                };
+                break;
+            };
+
+            case 3:
+            {
+                is_concluded = check_conclusion(ruleStack1.peak());
+                if(!is_concluded)
+                {
+                    int j = ++conc_list_placeholder;
+                    for(int i = j; i < 6; i++)
+                    {
+                        if(ruleStack1.peak().get_conclusion() == conc_list[i])
+                        {
+                            if(conc_list[i] == rlist->get_rule(i).get_conclusion())
+                            {
+                                currentRule = rlist->get_rule(i);
+                                ruleStack1.push(currentRule);
+                            }
+                        }
+
+                    };
+                }
+                else if(is_concluded)
+                {
+                    new_conclusion = ruleStack1.peak().get_conclusion();
+                }
+            };
+            break;
+
+            case 4:
+            {
+                is_concluded = check_conclusion(ruleStack1.peak());
+                if(!is_concluded)
+                {
+                    int j = ++conc_list_placeholder;
+                    for(int i = j; i < 6; i++)
+                    {
+                        if(ruleStack1.peak().get_conclusion() == conc_list[i])
+                        {
+                            if(conc_list[i] == rlist->get_rule(i).get_conclusion())
+                            {
+                                currentRule = rlist->get_rule(i);
+                                ruleStack1.push(currentRule);
+                            }
+                        }
+
+                    };
+                }
+                else if(is_concluded)
+                {
+                    new_conclusion = ruleStack1.peak().get_conclusion();
+                }
+            };
+                break;
+
+
+        };
+        if(is_concluded)
+        {
+            cout<< ruleStack1.peak().get_conclusion();
+            ruleStack1.pop();
+            if(ruleStack1.is_empty())
+            {
+                final_conclusion = new_conclusion;//not needed
+                cout<< final_conclusion;
+            }
+
         }
+
+
     }
 
 

@@ -11,7 +11,7 @@ using namespace std;
 
 class ruleBuilder {
     string conclusion_list[6];
-    ruleList rList;
+    ruleList* rList[30];
 public:
     ruleBuilder();
     void build_knowledge_base();

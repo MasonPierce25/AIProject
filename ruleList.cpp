@@ -29,3 +29,7 @@ rule ruleList::get_rule(int rule_num)
     return this->conclusion_list[rule_num];
 }
 
+rule* ruleList::getList()
+{
+    return this->conclusion_list;
+};

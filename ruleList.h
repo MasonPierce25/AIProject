@@ -16,6 +16,7 @@ public:
     ruleList(rule,rule,rule,rule,rule,rule);//must modify for thirty
     string get_conclusion(int);
     rule get_rule(int);
+    rule* getList();
 
 
 

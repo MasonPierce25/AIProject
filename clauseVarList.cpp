@@ -9,7 +9,8 @@ clauseVarList::clauseVarList()
 
 };
 
-clauseVarList::clauseVarList(string* clausesArray)
+
+clauseVarList::clauseVarList(clauseVar* clausesArray)
 {
     for(int i = 0; i < 100; i++)
     {

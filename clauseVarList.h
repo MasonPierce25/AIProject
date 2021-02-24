@@ -17,7 +17,7 @@ private:
 public:
 
     clauseVarList();
-    clauseVarList(string*);
+    clauseVarList(clauseVar*);
     clauseVar get_clause_byIndex(int);
     string get_clause_value(string);
     clauseVar get_clause(string);

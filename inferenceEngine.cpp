@@ -23,5 +23,5 @@ bool inferenceEngine::is_conclusion(string input,string* concl_list)
 
 int inferenceEngine::check_clauses(rule conclusion)
 {
-
+    
 }

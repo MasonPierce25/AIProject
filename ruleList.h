@@ -9,7 +9,7 @@
 
 class ruleList {
 private:
-    rule[30] conclusion_list;
+    rule conclusion_list[30];
 
 public:
     ruleList();

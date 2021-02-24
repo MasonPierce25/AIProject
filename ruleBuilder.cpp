@@ -39,7 +39,7 @@ void ruleBuilder::build_knowledge_base()
     rule rule5 = rule(qualify,grade,experience,"position",na,5);
     rule rule6 = rule(qualify, grade,"position",na,6 );
     ruleList r_List = ruleList(rule1,rule2,rule3,rule4,rule5,rule6);
-    this->rList = r_List;
+    set_rList(&r_List);
 };
 
 string* ruleBuilder::get_conclusion_list()
@@ -51,3 +51,11 @@ ruleList* ruleBuilder :: get_r_list()
 {
     return this->rList;
 };
+
+void ruleBuilder::set_rList(ruleList * rl)
+{
+    for(int i = 0; i <30;i++)
+    {
+        this->rList[i] = rl[i];
+    }
+}

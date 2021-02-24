@@ -11,13 +11,14 @@ using namespace std;
 
 class ruleBuilder {
     string conclusion_list[6];
-    ruleList* rList[30];
+    ruleList rList[30];
 public:
     ruleBuilder();
     void build_knowledge_base();
     void set_conclusion_list();
     string * get_conclusion_list();
     ruleList*  get_r_list();
+    void set_rList(ruleList*);
 
 
 };

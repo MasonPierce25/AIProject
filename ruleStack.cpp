@@ -12,6 +12,7 @@ ruleStack::ruleStack()
 void ruleStack::push(rule r)
 {
     this->stack.push_back(r);
+    this->stack.shrink_to_fit();
 };
 
 bool ruleStack::is_empty()

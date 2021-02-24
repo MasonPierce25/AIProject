@@ -12,7 +12,7 @@ class ruleStack {
 
 private:
     vector<rule> stack;
-
+    int maxSize = 10;
 
 public:
 

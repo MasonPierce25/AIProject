@@ -134,10 +134,44 @@ int inferenceEngine::check_clauses(rule currentRule,bool &conclusionReached)
         return 1;
     else if(currentRule.get_clause(2).conclusion_or_not())
         return 2;
-    else if ((!currentRule.get_clause(1).conclusion_or_not()) && (!currentRule.get_clause(1).is_instantiated()))
+    else if ((!currentRule.get_clause(1).conclusion_or_not()) && (!currentRule.get_clause(1).is_instantiated()))//switch this up for cancer stuff
     {
         currentRule.user_input(1);
-        check_conclusion(currentRule);
-        conclusionReached = currentRule.is_concluded();
+        if(!currentRule.get_clause(2).is_instantiated())
+        {
+            if(currentRule.get_rule_num() == 1 ||currentRule.get_rule_num() == 2 || currentRule.get_rule_num() == 3 )
+                currentRule.user_input(2);
+                check_conclusion(currentRule);
+                conclusionReached = currentRule.is_concluded();
+        }
+        else if(currentRule.get_rule_num() == 4 ||currentRule.get_rule_num() == 5 || currentRule.get_rule_num() == 6 )
+        {
+            currentRule.user_input_num(2);
+            if(!currentRule.get_clause(3).is_instantiated())
+                currentRule.user_input_num(3);
+            check_conclusion(currentRule);
+            conclusionReached = currentRule.is_concluded();
+        }
+        return 3;
     }
+    else if((!currentRule.get_clause(1).conclusion_or_not()) && (currentRule.get_clause(1).is_instantiated()) &&
+            (!currentRule.get_clause(2).conclusion_or_not())&& (currentRule.get_clause(2).is_instantiated()))
+    {
+        currentRule.check_concluded();
+        conclusionReached= currentRule.is_concluded();
+        return 4;
+    }
+    else if((!currentRule.get_clause(1).conclusion_or_not()) && (currentRule.get_clause(1).is_instantiated()) &&
+            (!currentRule.get_clause(2).conclusion_or_not())&& (currentRule.get_clause(2).is_instantiated())
+            && (!currentRule.get_clause(3).conclusion_or_not()) && (currentRule.get_clause(3).is_instantiated()))
+    {
+        {
+            currentRule.check_concluded();
+            conclusionReached= currentRule.is_concluded();
+            return 5;
+        }
+    }
+    else
+        cout<< "some kind of error";//debug spot 
+
 };

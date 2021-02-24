@@ -11,8 +11,9 @@ using namespace std;
 class ruleStack {
 
 private:
-    vector<rule> stack;
-    int maxSize = 10;
+    rule stack[6];
+    int maxSize = 6;
+    int top = -1;
 
 public:
 

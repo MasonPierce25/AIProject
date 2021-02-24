@@ -11,21 +11,34 @@ ruleStack::ruleStack()
 
 void ruleStack::push(rule r)
 {
-    this->stack.push_back(r);
-    this->stack.shrink_to_fit();
+    if(top >=maxSize)
+        cout<<"stack overflow";
+    else
+    {
+        top++;
+        this->stack[top] = r;
+    }
+
 };
 
 bool ruleStack::is_empty()
 {
-    return this->stack.empty();
+    if(top == -1)
+        return true;
 };
 
 rule ruleStack::peak()
 {
-    this->stack.back();
+    if(top>=0)
+        return this-> stack[top];
 };
 
 void ruleStack::pop()
 {
-    this->stack.pop_back();
+    if(top<=-1)
+        cout<<"stack underflow";
+    else
+        {
+            top--;
+        }
 }

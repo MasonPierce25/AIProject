@@ -46,3 +46,8 @@ string* ruleBuilder::get_conclusion_list()
 {
     return this->conclusion_list;
 };
+
+ruleList* ruleBuilder :: get_r_list()
+{
+    return this->rList;
+};

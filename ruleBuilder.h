@@ -17,6 +17,7 @@ public:
     void build_knowledge_base();
     void set_conclusion_list();
     string * get_conclusion_list();
+    ruleList*  get_r_list();
 
 
 };

@@ -13,9 +13,10 @@ private:
 
 public:
     ruleList();
-    ruleList(rule,rule,rule,rule,rule,rule);
+    ruleList(rule,rule,rule,rule,rule,rule);//must modify for thirty
     string get_conclusion(int);
     rule get_rule(int);
+
 
 
 };

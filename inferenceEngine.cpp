@@ -185,14 +185,45 @@ void inferenceEngine::run_inference_engine(int scenario)
 {
     string *conc_list;
     string input;
+    rule currentRule;
+    ruleList* rlist;
+    bool initially_found;
+    int scenario_num;
 
     ruleBuilder ruleBuilder1 = ruleBuilder();
     ruleBuilder1.build_knowledge_base();
     ruleBuilder1.set_conclusion_list();
     conc_list = ruleBuilder1.get_conclusion_list();
+    rlist = ruleBuilder1.get_r_list();
+    ruleStack ruleStack1 = ruleStack();
     cout<< "Enter a conclusion";
     cin>> input;
-    
+
+    for(int i = 0; i < 6; i++)
+    {
+
+        if(conc_list[i]== input)
+        {
+            if(conc_list[i] == rlist->get_rule(i).get_conclusion())
+                currentRule = rlist->get_rule(i);
+            initially_found = true;
+        }
+    }
+    if(!initially_found)
+        cout<< "no conclusion witht that name value";
+    else
+        ruleStack1.push(currentRule);
+    while(!ruleStack1.is_empty())
+    {
+        scenario_num = check_conclusion(ruleStack1.peak());
+
+        switch(scenario_num)
+        {
+            case 1:
+                
+        }
+    }
+
 
 
 };

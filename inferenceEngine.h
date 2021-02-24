@@ -14,7 +14,7 @@ private: string conclusion;
 public:
     inferenceEngine();
     bool is_conclusion(string, string*);
-    int check_clauses(rule);
+    int check_clauses(rule,bool&);
     bool check_conclusion(rule);
     bool update();
 

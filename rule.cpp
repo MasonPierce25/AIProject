@@ -9,7 +9,7 @@ rule::rule()
 
 };
 
-rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,clauseVar cv4,string conc,string type)
+rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,clauseVar cv4,string conc,string type,int ruleNum)
 {
     this->clause1 = cv1;
     this->clause2 = cv2;
@@ -19,12 +19,13 @@ rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,clauseVar cv4,string conc,s
     this->concluded = false;
     this->next_rule = false;
     this->conclusion_value = type;
+    this->rule_num= ruleNum;
 
 };
 
 
 
-rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,string conc,string type) {
+rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,string conc,string type,int ruleNum) {
     this->clause1 = cv1;
     this->clause2 = cv2;
     this->clause3 = cv3;
@@ -32,9 +33,10 @@ rule::rule(clauseVar cv1,clauseVar cv2,clauseVar cv3,string conc,string type) {
     this->concluded = false;
     this->next_rule = false;
     this->conclusion_value = type;
+    this->rule_num= ruleNum;
 };
 
-rule::rule(clauseVar cv1, clauseVar cv2,string conc,string type)
+rule::rule(clauseVar cv1, clauseVar cv2,string conc,string type,int ruleNum)
 {
     this->clause1 = cv1;
     this->clause2 = cv2;
@@ -42,23 +44,25 @@ rule::rule(clauseVar cv1, clauseVar cv2,string conc,string type)
     this->concluded = false;
     this->next_rule = false;
     this->conclusion_value = type;
+    this->rule_num= ruleNum;
 };
 
-rule::rule(clauseVar cv1,string conc,string type)
+rule::rule(clauseVar cv1,string conc,string type,int ruleNum)
 {
     this->clause1 = cv1;
     this->conclusion = conc;
     this->concluded = false;
     this->next_rule = false;
     this->conclusion_value = type;
+    this->rule_num= ruleNum;
 };
-
+/*
 bool rule:: check_concluded()
 {
-   if(this->concluded)
+   if(this->concluded) extra
        return true;
 };
-
+*/
 void rule::update_concluded() // i have to tweak this to make it work for more than two clauses
 {
     if (this->clause1.is_instantiated() && this->clause2.is_instantiated())
@@ -112,4 +116,14 @@ void rule::user_input(int clauseNum)
     cin >> value;
     clause.set_answer(value);
     clause.set_instantiated();
+};
+
+bool rule::is_concluded()
+{
+    return this->concluded;
+};
+
+int rule:: get_rule_num(int ruleNum)
+{
+
 };

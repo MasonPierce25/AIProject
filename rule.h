@@ -14,6 +14,7 @@ class rule {
 private:
     string conclusion;
     string conclusion_value;
+    int rule_num;
     clauseVar clause1;
     clauseVar clause2;
     clauseVar clause3;
@@ -24,11 +25,12 @@ private:
 
 public:
     rule();
-    rule(clauseVar,clauseVar,clauseVar,clauseVar,string,string);
-    rule(clauseVar,clauseVar,clauseVar,string,string);
-    rule(clauseVar, clauseVar,string,string);
-    rule(clauseVar,string,string);
+    rule(clauseVar,clauseVar,clauseVar,clauseVar,string,string,int);
+    rule(clauseVar,clauseVar,clauseVar,string,string,int);
+    rule(clauseVar, clauseVar,string,string,int);
+    rule(clauseVar,string,string,int);
     string get_conclusion();
+    bool is_concluded();
     void update_concluded();
     bool update_next_rule();
     bool check_concluded();
@@ -36,6 +38,7 @@ public:
     string get_conclusion_value();
     void set_conclusion_value(string);
     void user_input(int);
+    int get_rule_num();
 
 };
 

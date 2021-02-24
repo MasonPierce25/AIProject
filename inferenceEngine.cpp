@@ -16,6 +16,24 @@ inferenceEngine::inferenceEngine()
 
 bool inferenceEngine :: check_conclusion(rule r)
 {
+    int ruleNum = r.get_rule_num();
+    switch(ruleNum)
+    {
+        case 1:
+            if(r.get_clause(1).get_answer() == "NO")
+            {
+                r.set_conclusion_value("NO");
+                r.is_concluded();
+            }
+            else if (r.get_clause(1).get_answer() ==  "YES")
+            {
+                r.set_conclusion_value("YES");
+            }
+            else
+            {
+                cout<< "Error";
+            }
+    };
 
 };
 bool inferenceEngine::is_conclusion(string input,string* concl_list)
@@ -30,14 +48,18 @@ bool inferenceEngine::is_conclusion(string input,string* concl_list)
 };
 
 
-int inferenceEngine::check_clauses(rule conclusion)
+int inferenceEngine::check_clauses(rule currentRule,bool &conclusionReached)
 {
-    if (conclusion.get_clause(1).conclusion_or_not())
+
+
+    if (currentRule.get_clause(1).conclusion_or_not())
         return 1;
-    else if(conclusion.get_clause(2).conclusion_or_not())
+    else if(currentRule.get_clause(2).conclusion_or_not())
         return 2;
-    else if ((!conclusion.get_clause(1).conclusion_or_not()) && (!conclusion.get_clause(1).conclusion_or_not()))
+    else if ((!currentRule.get_clause(1).conclusion_or_not()) && (!currentRule.get_clause(1).conclusion_or_not()))
     {
-        conclusion.get_clause(1).
+        currentRule.user_input(1);
+        check_conclusion(currentRule);
+        conclusionReached = currentRule.is_concluded();
     };
 }

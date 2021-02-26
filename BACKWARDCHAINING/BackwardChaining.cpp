@@ -46,7 +46,7 @@ exact
     //MARK: variables
     varlt[1] = "WON'T START";
     varlt[2] = "POWER CORD";
-    varlt[3] = "HARDWARE OLD";z
+    varlt[3] = "HARDWARE OLD";
             varlt[4] = "COMPUTER CRASHING";
     varlt[5] = "SOFTWARE UPDATED";
     varlt[6] = "ANTIVIRUS";

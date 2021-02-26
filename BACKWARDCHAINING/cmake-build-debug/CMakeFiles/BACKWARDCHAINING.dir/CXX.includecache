@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/sside/CLionProjects/BACKWARDCHAINING/BackwardChaining.cpp
+BackwardChaining.h
+/Users/sside/CLionProjects/BACKWARDCHAINING/BackwardChaining.h
+BackwardChaining.h
+/Users/sside/CLionProjects/BACKWARDCHAINING/BackwardChaining.h
+
+/Users/sside/CLionProjects/BACKWARDCHAINING/BackwardChaining.h
+iostream
+-
+stdio.h
+-
+string.h
+/Users/sside/CLionProjects/BACKWARDCHAINING/string.h
+cassert
+-
+

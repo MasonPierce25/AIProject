@@ -1,6 +1,9 @@
 #include <iostream>
+#include "BackwardChaining.h"
+#include <iostream>
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+int main()
+{
+    BackwardChaining bw1 = BackwardChaining();
+    std::cout<< bw1.run();
 }

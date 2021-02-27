@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="tree diagram.svg"
+   inkscape:version="1.0beta1 (fe3e306, 2019-09-17)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="330.6133"
+     inkscape:cx="335.19702"
+     inkscape:zoom="1.1305664"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <flowRoot
+       transform="translate(-0.16451683,-2.2545421)"
+       xml:space="preserve"
+       id="flowRoot855"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;line-height:1.2;font-family:sans-serif;-inkscape-font-specification:'sans-serif Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px"
+         id="flowRegion851"><rect
+           id="rect849"
+           width="218.94724"
+           height="163.68143"
+           x="2.5956893"
+           y="4.9441705"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;stroke-width:1" /></flowRegion><flowPara
+         id="flowPara863">Variables:</flowPara><flowPara
+         id="flowPara921" /><flowPara
+         id="flowPara875">00. Bladder_Cancer</flowPara><flowPara
+         id="flowPara897">01. Breast_Cancer</flowPara><flowPara
+         id="flowPara899">02. Colon_Cancer</flowPara><flowPara
+         id="flowPara901">03. Endometrial_Cancer</flowPara><flowPara
+         id="flowPara903">04. Kidney_Cancer</flowPara><flowPara
+         id="flowPara905">05. Leukemia</flowPara><flowPara
+         id="flowPara907">06. Liver_Cancer</flowPara><flowPara
+         id="flowPara909">07. Lung_Cancer</flowPara><flowPara
+         id="flowPara911">08. Skin_Cancer: Basal_Carcinoma Squamous_Carcinoma Melanoma</flowPara><flowPara
+         id="flowPara913">09. Lymphoma</flowPara><flowPara
+         id="flowPara915">10. Pancreatic_Cancer</flowPara><flowPara
+         id="flowPara917">11. Prostate_Cancer</flowPara><flowPara
+         id="flowPara927">12. Thyroid_Cancer</flowPara><flowPara
+         id="flowPara923" /><flowPara
+         id="flowPara919">13. Urination: Normal Frequent Bloody</flowPara><flowPara
+         id="flowPara943">14. Breast: Normal Tender</flowPara><flowPara
+         id="flowPara945">15. Bowel_Movements: Normal Abnormal Bloody</flowPara><flowPara
+         id="flowPara947">16. Vaginal_Discharge: Not_Present Present</flowPara><flowPara
+         id="flowPara949">17. Weight: Normal Unintential_Loss</flowPara><flowPara
+         id="flowPara953">18. Persistent_Fatigue: No Yes</flowPara><flowPara
+         id="flowPara955">19. Bruising: Normal Abnormal</flowPara><flowPara
+         id="flowPara957">20. Lymph_Nodes: Normal Swollen Painful</flowPara><flowPara
+         id="flowPara959">21. Jaundice: No Yes</flowPara><flowPara
+         id="flowPara961">22. Lump: None Neck Breast Abdomen </flowPara><flowPara
+         id="flowPara965">23. Coughing: None Persistent Bloody</flowPara><flowPara
+         id="flowPara969">24. Skin_Abnormalities: None Waxy_&amp;_reoccuring Red_&amp;_crusty Miscoloured_&amp;_mishapen</flowPara><flowPara
+         id="flowPara975">25. Night_Sweating: None Often</flowPara><flowPara
+         id="flowPara979">26. Apetite: Normal Less Nausea</flowPara><flowPara
+         id="flowPara981">27. Biological_Sex: Male Female</flowPara><flowPara
+         id="flowPara985">28. Discomfort: Back Bottom Stomach</flowPara><flowPara
+         id="flowPara977"> </flowPara><flowPara
+         id="flowPara951"> </flowPara></flowRoot>    <text
+       id="text973"
+       y="142.44362"
+       x="69.586609"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.264583"
+         y="142.44362"
+         x="69.586609"
+         id="tspan971"
+         sodipodi:role="line" /></text>
+  </g>
+</svg>

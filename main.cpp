@@ -25,8 +25,9 @@ void treat(ExpertSystem system){
 int main(int argc, char** argv) {
     int input;
     ExpertSystem system;
-    system.forwardChain(0x0004);
-//    system.backwardsChain(0x000b);
+ //   system.forwardChain(0x0004);
+    //test proving variable 2 = 3
+    system.backwardsChain(0x000b);
     system.printData();
     cout<<"Finished, press any key to continue."<<endl;
     cin>>input;

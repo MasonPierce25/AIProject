@@ -73,8 +73,6 @@ private:
     std::string *variableNames;
     //Array of 256 variable state names, each variable has 4 possible states
     std::string *variableStateNames;
-    //Array of 256 Rule Names, usually phrased as questions with up to 4 answers
-    std::string *ruleNames;
     
     /*
      * Private Methods
@@ -90,6 +88,8 @@ public:
     void clearFactBase();
     //removes all rules from the rule base
     void clearRuleBase();
+    //clears ALL data in this structure
+    void clearAllData();
     //sets a fact given a var/val
     void setVariable(uint8_t value);
     //returns a var/val pair given a var/null pair

@@ -29,7 +29,6 @@ ExpertSystem::ExpertSystem()
     intializedFlag=0x00000000;
     variableNames = new std::string[64];
     variableStateNames = new std::string[256];
-    ruleNames = new std::string[256];
     
     //overwrites garbage data
     clearFactBase();
@@ -48,10 +47,11 @@ ExpertSystem::~ExpertSystem() {
     delete[] factBase;
     delete[] variableNames;
     delete[] variableStateNames;
-    delete[] ruleNames;
 }
 
 void ExpertSystem::loadFile(){
+    //wipe ALL file data before a load
+    clearAllData();
     
     std::ifstream dataFile("data.txt");
     
@@ -64,8 +64,8 @@ void ExpertSystem::loadFile(){
     variableNames[0]="NULL_VAR";
     
     //temp variables
-    std::string names[6];
-    for(int i=0;i<6;i++){
+    std::string names[5];
+    for(int i=0;i<5;i++){
         names[i]="";
     }
     char type;
@@ -79,7 +79,6 @@ void ExpertSystem::loadFile(){
                     
                     for(int i=0;i<5;i++){
                         dataFile>>names[i];
-                        std::replace(names[i].begin(),names[i].end(),'_',' ');
                     }
                     
                     
@@ -96,28 +95,42 @@ void ExpertSystem::loadFile(){
                 if(ruleCount<256){
                     int states[5];
                     
-                    dataFile>>names[0];
-                    std::replace(names[0].begin(),names[0].end(),'_',' ');
                     for(int i=0;i<5;i++){
-                        dataFile>>names[i+1];
-                        if(names[i+1]=="-"){
+                        dataFile>>names[i];
+                        if(names[i]=="-"){
                             states[i]=0;
                         }
-                        else{
-                            dataFile>>states[i];
-                            std::replace(names[i+1].begin(),names[i+1].end(),'_',' ');
+                        else{//get the value of the current variable, compare each state name to the written on
+                            uint8_t currentVar= varMap[names[i]];
+                            std::string stateName = "";
+                            bool found = false;
+                            dataFile>>stateName;
+                            
+                            int j=0;
+                            for(;j<4;j++){
+                                if(stateName == variableStateNames[currentVar*4+j]){
+                                    found = true;
+                                    break;
+                                }
+                            }
+                            if(!found){
+                                std::cout<<"Error declaring rule "<<ruleCount<<" for variable state "<<stateName<<std::endl;
+                            }
+                            else
+                                states[i]= j;
+                                
                         }
                     }
                     
                     uint64_t antecedents=0;
                     for(int i=0;i<4;i++){
-                        antecedents |= varMap[names[i+1]]<<2;
+                        antecedents |= varMap[names[i]]<<2;
                         antecedents|=states[i];
-                        if(i<3)
+                        if(i<3)//last one should not be shifted
                             antecedents<<=8;
                     }
                     uint8_t consequent = states[4];
-                    consequent |= (varMap[names[5]])<<2;
+                    consequent |= (varMap[names[4]])<<2;
                     
                     ruleBase[ruleCount] = Rule(antecedents,consequent);
 //                    std::cout<<":"<<std::hex<<(int)ruleBase[ruleCount].antecedents<<" : "<<(int)ruleBase[ruleCount].consequent<<std::endl;
@@ -134,6 +147,15 @@ void ExpertSystem::loadFile(){
             dataFile.ignore(500,'\n');
         }
     }
+    
+    //remove all undescores frome names
+//    int i=0;
+//    for(;variableNames[i]!="-";i++){
+//        std::replace(variableNames[i].begin(),variableNames[i].end(),'_',' ');
+//        for(int j=0;j<4;j++){
+//            std::replace(variableStateNames[i*4+j].begin(),variableStateNames[i*4+j].end(),'_',' ');
+//        }
+//    }
     
     dataFile.close();
 }
@@ -154,9 +176,8 @@ ExpertSystem::Rule::~Rule(){
 void ExpertSystem::clearFactBase(){
     for(int i=0;i<16;i++){
         factBase[i]=0;
-        //shifting i by 2 converts it to a var/val pair
-        setInitialized((i<<2),false);
     }
+    intializedFlag=0;
 }
 
 void ExpertSystem::clearRuleBase(){
@@ -165,8 +186,19 @@ void ExpertSystem::clearRuleBase(){
     }
 }
 
+void ExpertSystem::clearAllData(){
+    for(int i=0;i<64;i++){
+        variableNames[i]="";
+    }
+    for(int i=0;i<256;i++){
+        variableStateNames[i]="-";
+    }
+    clearFactBase();
+    clearRuleBase();
+}
+
 bool ExpertSystem::Rule::containsAntecedent(uint8_t value){
-    return (((antecedents>>24 & 0xf)==value) || ((antecedents>>16 & 0xf)==value)||((antecedents>>8 & 0xf)==value)||((antecedents & 0xf)==value));
+    return (((antecedents>>24 & 0xff)==value) || ((antecedents>>16 & 0xff)==value)||((antecedents>>8 & 0xff)==value)||((antecedents & 0xff)==value));
     
 }
 
@@ -188,6 +220,7 @@ void ExpertSystem::Rule::setAntecedent(int index, uint8_t value){
 void ExpertSystem::Rule::setAntecedents(uint32_t value){
     antecedents = value;
 }
+
 
 bool ExpertSystem::verifyRule(Rule &rule){
     bool r = false;
@@ -212,13 +245,11 @@ void ExpertSystem::enactRule(Rule &rule){
             continue;
         if(!isInitialized(antecedent) || getVariable(antecedent)!=antecedent){
             //rule can not be enacted due to being unitialized or a false antecedent
-            std::cout<<"cant eb enacted: "<<std::hex<<(int)antecedent<<std::endl;
             return;
         }
     }
     //all rules passed
     setVariable(rule.consequent);
-    std::cout<<"Set Variable "<<std::hex<<(int)rule.consequent<<std::endl;
 }
 
  bool ExpertSystem::Rule::operator==(const ExpertSystem::Rule &rule){
@@ -258,7 +289,7 @@ uint8_t ExpertSystem::requestVariableFromUser(uint8_t value){
     //removes the value from a Variable/Value pair that makes up Antecdents and Consequents (only need first 6 bits)
     //we must do this so the values in the VariableNames are correct
     value>>=2;
-    std::cout<<"Please enter the value for "<< variableNames[value] <<".\n";
+    std::cout<< variableNames[value] <<"?\n";
     for(int i=0;i<4;i++){
         if(variableStateNames[value*4+i]!="-")
             std::cout<<i<<". "<<variableStateNames[value*4+i]<<"   ";
@@ -267,12 +298,12 @@ uint8_t ExpertSystem::requestVariableFromUser(uint8_t value){
     unsigned int userInput; //variable of user input 0-3
     std::cin>>userInput;
     while(userInput<0 || userInput>3 || std::cin.fail() || variableStateNames[value*4+userInput]=="-"){
-        std::cout<<"Unknown Input. Please enter the value for "<< variableNames[value] << " again."<<std::endl;
+        std::cout<<"Unknown Input. Please answer the question: \""<< variableNames[value] << "\" again using a corresponding number."<<std::endl;
         std::cin.clear();
         std::cin.ignore();
         std::cin>>userInput;
     }
-    std::cout<<"Set value of "<<variableNames[value]<<" to "<< variableStateNames[value*4+userInput] <<"\n"<<std::endl;
+    std::cout<< variableStateNames[value*4+userInput] <<"\n"<<std::endl;
     //return the value back to the Variable/Value pair
     value<<=2;
     value|=userInput;
@@ -319,7 +350,6 @@ void ExpertSystem::forwardChain(uint8_t startFact){
         for (int i = 0; i < 256; i++) {
             if (ruleBase[i] == EMPTY_RULE)
                 break;
-          std::cout<<"Current Fact: "<<std::hex<<(int)currentFact<<" Current Rule:"<<i<<std::endl;
 
                 if (ruleBase[i].containsAntecedent(currentFact) && verifyRule(ruleBase[i])) {
                     //if the rule contains the updated antecedent AND that rule has been verified as possibly true
@@ -329,7 +359,6 @@ void ExpertSystem::forwardChain(uint8_t startFact){
                         currentAntecedent = 0xff & ((ruleBase[i].antecedents >> (8 * j)));
                         if(currentAntecedent == NULL_VAR)
                             continue;
-                        std::cout<<"Checking Antecedent: "<<std::hex<<(int)currentFact<<":"<<(int)currentAntecedent<<std::endl;
                         if (isInitialized(currentAntecedent)) {
                             if (currentAntecedent != getVariable(currentAntecedent)) {
                                 //invalidates this rule
@@ -354,7 +383,6 @@ void ExpertSystem::forwardChain(uint8_t startFact){
                         //if the rule is true, we can add the consequent to the queue and initialize it
                         //we CAN NOT reinitialize a variable if it is already initialized
                         if(!isInitialized(ruleBase[i].consequent)){
-                            std::cout<<"Initialized: "<<std::hex<<(int)ruleBase[i].consequent<<std::endl;
                             setVariable(ruleBase[i].consequent);
                             consequentQueue.push(ruleBase[i].consequent);
                         }
@@ -368,7 +396,10 @@ void ExpertSystem::forwardChain(uint8_t startFact){
 
 void ExpertSystem::backwardsChain(uint8_t goalFact) {
 
-    //find rules that match the consequent, call recursion if they are found
+    //find rules that match the goal consequent, call recursion if they are found
+    //recursion will use the system stack instead of a premade stack on the heap
+    //this method is far easier to implement and stores values we normally cant such as picking up in a loop we were in
+    //this function ONLY PROVES A FACT, it will NOT search for a general consequent as that is not its goal
     for (uint8_t i = 0; !(ruleBase[i] == EMPTY_RULE); i++) {
         if (ruleBase[i].containsConsequent(goalFact))
             recursiveBackwards(i);
@@ -376,23 +407,23 @@ void ExpertSystem::backwardsChain(uint8_t goalFact) {
     
 }
 
+//simple recursuve helper function for backwards chaining
 void ExpertSystem::recursiveBackwards(uint8_t currentRule){
     for(int i=0;i<4;i++){
         uint8_t currentAntecedent = 0xff & (ruleBase[currentRule].antecedents >> (8 * i));
-        if(currentAntecedent==NULL_VAR)
+        if(currentAntecedent==NULL_VAR)//In the case that there is no Variable in the current slot
             continue;
         bool found = false;
-        for(int j=0;!(ruleBase[j] == EMPTY_RULE);j++){
-            if(ruleBase[j].containsConsequent(currentAntecedent)){
-                recursiveBackwards(j);
-                found = true;
+        for(int j=0;!(ruleBase[j] == EMPTY_RULE);j++){//Iterate through all Rules
+            if(ruleBase[j].containsConsequent(currentAntecedent)){//if the Rule contains the current antecdent in its consequent
+                recursiveBackwards(j); //we perform this function again and go up a level, thus putting it on the stack
+                found = true; //we pass that this variable was found so we do not hit the base case
             }
         }
-        if(!found){
-            requestVariableFromUser(currentAntecedent);
+        if(!found && !isInitialized(currentAntecedent)){ //BASE CASE
+            requestVariableFromUser(currentAntecedent); //the Antecedent can not be determined through inference, ask the user
         }
     }
-    enactRule(ruleBase[currentRule]);
-    std::cout<<"Enacted rule "<<ruleNames[currentRule]<<(int)currentRule<<std::endl;
+    enactRule(ruleBase[currentRule]); //When all the recursion is done the current rule will have all antecedents initialized, it can thus inference its consequent
 }
 

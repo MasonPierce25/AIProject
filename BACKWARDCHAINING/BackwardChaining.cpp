@@ -250,161 +250,161 @@ key. */
                     //MARK: if part of statement 1 */
                     /****** comment 1500 ****/
                     case 1:
-                        if(wontStart == "YES" && powerCord == "NO"){
-                            s = 1;
+                        if(Urination == Both_frequent_urge_and_bloody){
+                            Bladder_Cancer = "YES";
                         }
                         break;
                         /* if part of statement 2 */
                         /***** comment 1510 ******/
                     case 2:
-                        if(wontStart == "YES" && hardwareAge == "YES"){
-                            s = 1;
+                        if(Breast_Abnormal == "YES" && Sex == Female){
+                            Breast_Cancer = "YES";
                         }
                         break;
                         /* if part of statement 3 */
                     case 3:
-                        if(computerCrashing == "YES" && hardwareAge == "YES"){
-                            s = 1;
+                        if(Breast_Abnormal == "YES" && Sex == Male && Family_history == "YES"){
+                            Breast_Cancer = "YES";
                         }
                         break;
                         /* if part of statement 4 */
                         /******** comment 1560 ******/
                     case 4:
-                        if(computerCrashing == "YES" && softwareUpToDate == "NO"){
-                            s = 1;
+                        if(Bowel_Movements == Abnormal_and_blood_present){
+                            Colon_Cancer = "YES";
                         }
                         break;
                         /******** comment 1570 ********/
                         /* if part of statement 5 */
                     case 5:
-                        if(computerCrashing == "YES" && antiVirus == "NO"){
-                            s = 1;
+                        if(Bowel_Movements == Abnormal_and_blood_present && Colon_Polyp == "YES"){
+                            Colon_Cancer = "YES";
                         }
                         break;
                         /* if part of statement 6 */
                     case 6:
-                        if(antiVirus == "NO" || firewall == "NO"){
-                            s = 1;
+                        if(Sex == Female && Vaginal_Discharge == "YES" && Discomfort == In_the_bottom_or_pelvic_area){
+                            Endometrial_Cancer = "YES;
                         }
                         break;
                     case 7:
-                        if(antiVirus == "NO" && runningHot == "YES"){
-                            s = 1;
+                        if( && Discomfort == In_the_back){
+                            Kidney_Cancer = "YES";
                         }
                         break;
                     case 8:
-                        if(antiVirus == "NO" && lockedOut == "YES"){
-                            s = 1;
+                        if(Urination == Bloody && Discomfort == Abdomen_or_Back){
+                            Kidney_Cancer = "YES";
                         }
                         break;
                     case 9:
-                        if(antiVirus == "NO" && lostControl == "YES"){
-                            s = 1;
+                        if(Discomfort == In_the_back && Lump == Abdomen_or_Back){
+                            Kidney_Cancer = "YES";
                         }
                         break;
                     case 10:
-                        if(ransomMessage == "YES"){
-                            s = 1;
+                        if(Fatigue == "YES" && Bruising == "YES" && General_Symptoms == "YES"){
+                            Leukemia = "YES";
                         }
                         break;
                     case 11:
-                        if(serverVolume >= 4){
-                            s = 1;
+                        if(Appetite == Less_and/or_nauseated && Discomfort == In_the_stomach && Jaundice == "YES"){
+                            Liver_or_Pancreatic_Cancer = "YES";
                         }
                         break;
                     case 12:
-                        if(antiVirus == "NO" && computerSpeed == "YES"){
-                            s = 1;
+                        if(Throat/Lungs == A_persistent_cough_and_blood && General_Symptoms == "YES"){
+                            Lung_Cancer = "YES";
                         }
                         break;
                     case 13:
-                        if(securitySoftware ==  "NO" && internetSpeed == "YES"){
-                            s = 1;
+                        if(Blemish ==  "NO"){
+                            Skin_Cancer = "NO";
                         }
                         break;
                     case 14:
-                        if(computerSpeed == "YES" && internetSpeed == "YES" && serverVolume >=3){
-                            s = 1;
+                        if(Blemish == A_waxy_recurring_bump){
+                            Skin_Cancer = Basal_Carcinoma;
                         }
                         break;
                     case 15:
-                        if((computerSpeed == "YES" || internetSpeed == "YES") && popupVolume == "YES"){
-                            s = 1;
+                        if((Blemish == A_red_and_crusty_bump){
+                            Skin_Cancer = Squamous_Carcinoma;
                         }
                         break;
                     case 16:
-                        if((computerSpeed == "YES" || internetSpeed == "YES") && unknownActivitiesRunning == "YES"){
-                            s = 1;
+                        if((Blemish == A_misshapen_and/or_discolored_bump){
+                            Skin_Cancer = Melanoma;
                         }
                         break;
                     case 17:
-                        if(securitySoftware == "NO" && validUserActivities == "NO"){
-                            s = 1;
+                        if(General_Symptoms == "YES" && Night_Sweating == "YES"){
+                            Lymphoma = "YES";
                         }
                         break;
                     case 18:
-                        if(securitySoftware == "NO" && publicUsage == "YES"){
-                            s = 1;
+                        if(Lump == Lymph_Nodes && General_Symptoms == "YES"){
+                            Lymphoma = "YES";
                         }
                         break;
                     case 19:
-                        if(securitySoftware == "NO" && suspiciousLink == "YES"){
-                            s = 1;
+                        if(Appetite == Less_and/or_nauseated && Throat/Lungs == Trouble_swallowing && Weight_Loss == "YES"){
+                            Esophageal_Cancer = "YES";
                         }
                         break;
                     case 20:
-                        if(securitySoftware == "NO" && suspiciousEmail == "YES"){
-                            s = 1;
+                        if(Sex == Male && Discomfort == In_the_bottom_or_pelvic_area && Urination == Frequent_urge){
+                            Prostate_Cancer = "Yes";
                         }
                         break;
                     case 21:
-                        if(securitySoftware == "NO" && credibleLink == "YES"){
-                            s = 1;
+                        if(Lump == Neck && Throat/Lungs == A_persistent_cough){
+                            Thyroid_Cancer = "YES";
                         }
                         break;
                     case 22:
-                        if(securitySoftware == "NO" && onlinePurchase == "YES"){
-                            s = 1;
+                        if(Appetite == Less_and/or_nauseated){
+                            General_Symptoms = "YES";
                         }
                         break;
                     case 23:
-                        if(securitySoftware == "NO" && popupLink == "YES"){
-                            s = 1;
+                        if(Chills/Fever == "YES"){
+                            General_Symptoms = "YES";
                         }
                         break;
                     case 24:
-                        if(securitySoftware == "NO" && rogueEmail == "YES"){
-                            s = 1;
+                        if(Fatigue == "YES"){
+                            General_Symptoms = "YES";
                         }
                         break;
                     case 25:
-                        if(securitySoftware == "NO" && unauthorizedText == "YES"){
-                            s = 1;
+                        if(Weight_Loss == "YES"){
+                            General_Symptoms = "YES";
                         }
                         break;
                     case 26:
-                        if(encryptionSoftware == "NO" && stolenData == "YES"){
-                            s = 1;
+                        if(Lump == Neck){
+                            General_Symptoms = "YES";
                         }
                         break;
                     case 27:
-                        if((validUserActivities == "NO" || encryptionSoftware == "NO") && databaseChanged == "YES"){
-                            s = 1;
+                        if((Discomfort == In_the_bottom_or_pelvic_area && Urination == Frequent_urge){
+                            General_Symptoms = "YES";
                         }
                         break;
                     case  28:
-                        if(encryptionSoftware == "NO" && inconsistentDocument == "YES"){
-                            s = 1;
+                        if(Breast_Abnormal == "YES"){
+                            General_Symptoms = "YES";
                         }
                         break;
                     case 29:
-                        if(stolenData == "YES" && password == "NO"){
-                            s = 1;
+                        if(Blemish != No){
+                            General_Symptoms = "YES";
                         }
                         break;
                     case 30:
-                        if(editedDocuments == "YES" && password == "NO"){
-                            s = 1;
+                        if(Urination == Bloody){
+                            General_Symptoms = "YES";
                         }
                         break;
 

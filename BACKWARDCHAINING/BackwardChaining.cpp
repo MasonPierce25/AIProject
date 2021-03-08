@@ -44,26 +44,26 @@ exact
     /**** comment 367 *****/
 
     //MARK: variables
-    varlt[1] = "WON'T START";
-    varlt[2] = "POWER CORD";
-    varlt[3] = "HARDWARE OLD";
-            varlt[4] = "COMPUTER CRASHING";
-    varlt[5] = "SOFTWARE UPDATED";
-    varlt[6] = "ANTIVIRUS";
-    varlt[7] = "FIREWALL";
-    varlt[8] = "RUNNING HOT";
-    varlt[9] = "LOCKED OUT";
-    varlt[10] = "LOST CONTROL";
-    varlt[11] = "RANSOM MESSAGE";
-    varlt[12] = "SERVER VOLUME";
-    varlt[13] = "SLOW CPU";
-    varlt[14] = "SLOW INTERNET";
-    varlt[15] = "POPUP VOLUME";
-    varlt[16] = "UNKNOWN ACTIVITIES";
-    varlt[17] = "VALID USER";
-    varlt[18] = "PUBLIC USAGE";
-    varlt[19] = "SUSPICIOUS LINK";
-    varlt[20] = "SUSPICIOUS EMAIL";
+    varlt[1] = "Urinary Freq";
+    varlt[2] = "Urinary Bloody";
+    varlt[3] = "Discomfort in Back";
+    varlt[4] = "Lump on Back or Abdomen";
+    varlt[5] = "Waxy Blemish";
+    varlt[6] = "Red Crusty Blemish";
+    varlt[7] = "Mishapen Blemish";
+    varlt[8] = "Breast Abnormal";
+    varlt[9] = "Gender";
+    varlt[10] = "Family History";
+    varlt[11] = "Bowel Movements";
+    varlt[12] = "Colon Polyps";
+    varlt[13] = "Appetite or Nausea";
+    varlt[14] = "Discomfort in Stomach";
+    varlt[15] = "Jaundice";
+    varlt[16] = "Weight Loss";
+    varlt[17] = "Trouble Swallowing";
+    varlt[18] = "Lump on Neck";
+    varlt[19] = "Persistent Cough";
+    varlt[20] = "Cough Blood";
     varlt[21] = "CREDIBLE LINK";
     varlt[22] = "ONLINE PURCHASE";
     varlt[23] = "POPUP LINK";
@@ -87,57 +87,57 @@ key. */
 
     //MARK: Clauses
     // RULE 1
-    clvarlt[1] = "WON'T START";
-    clvarlt[2] = "POWER CORD";
+    clvarlt[1] = "Urinary Freq";
+    clvarlt[2] = "Urinary Bloody";
     // RULE 2
-    clvarlt[5] = "WON'T START";
-    clvarlt[6] = "HARDWARE OLD";
+    clvarlt[5] = "Urinary Bloody";
+    clvarlt[6] = "Discomfort in Back";
     // RULE 3
-    clvarlt[9] = "COMPUTER CRASHING";
-    clvarlt[10] = "HARDWARE OLD";
+    clvarlt[9] = "Urinary Bloody";
+    clvarlt[10] = "Lump on Back or Abdomen";
     // RULE 4
-    clvarlt[13] = "COMPUTER CRASHING";
-    clvarlt[14] = "SOFTWARE UPDATED";
+    clvarlt[13] = "Lump on Back or Abdomen";
+    clvarlt[14] = "Discomfort in Back";
     // RULE 5
-    clvarlt[17] = "COMPUTER CRASHING";
-    clvarlt[18] = "ANTIVIRUS";
+    clvarlt[17] = "Waxy Blemish";
+    clvarlt[18] = "Red Crusty Blemish";
     // RULE 6
-    clvarlt[21] = "ANTIVIRUS";
-    clvarlt[22] = "FIREWALL";
+    clvarlt[21] = "Mishapen Blemish";
+    clvarlt[22] = "Breast Abnormal";
     // RULE 7
-    clvarlt[25] = "ANTIVIRUS";
-    clvarlt[26] = "RUNNING HOT";
+    clvarlt[25] = "Gender";
+    clvarlt[26] = "Breast Abnormal";
     // RULE 8
-    clvarlt[29] = "ANTIVIRUS";
-    clvarlt[30] = "LOCKED OUT";
+    clvarlt[29] = "Gender";
+    clvarlt[30] = "Family History";
     // RULE 9
-    clvarlt[33] = "ANTIVIRUS";
-    clvarlt[34] = "LOST CONTROL";
+    clvarlt[33] = "Bowel Movements";
+    clvarlt[34] = "Bowel Movements";
     // RULE 10
-    clvarlt[37] = "RANSOM MESSAGE";
+    clvarlt[37] = "Colon Polyps";
     // RULE 11
-    clvarlt[41] = "SERVER VOLUME";
+    clvarlt[41] = "Appetite or Nausea";
     // RULE 12
-    clvarlt[45] = "ANTIVIRUS";
-    clvarlt[46] = "SLOW CPU";
+    clvarlt[45] = "Discomfort in Stomach";
+    clvarlt[46] = "Jaundice";
     // RULE 13
-    clvarlt[49] = "ANTIVIRUS";
-    clvarlt[50] = "FIREWALL";
-    clvarlt[51] = "SLOW INTERNET";
+    clvarlt[49] = "Appetite or Nausea";
+    clvarlt[50] = "Weight Loss";
+    clvarlt[51] = "Trouble Swallowing";
     // RULE 14
-    clvarlt[53] = "SLOW CPU";
-    clvarlt[54] = "SLOW INTERNET";
-    clvarlt[55] = "SERVER VOLUME";
+    clvarlt[53] = "Lump on Neck";
+    clvarlt[54] = "Persistent Cough";
+    clvarlt[55] = "Cough Blood";
     // RULE 15
-    clvarlt[57] = "SLOW CPU";
-    clvarlt[58] = "SLOW INTERNET";
-    clvarlt[59] = "POPUP VOLUME";
+    clvarlt[57] = "Gender";
+    clvarlt[58] = "Discomfort in Pelvic Area";
+    clvarlt[59] = "Urinary Freq";
     // RULE 16
-    clvarlt[61] = "SLOW CPU";
-    clvarlt[62] = "SLOW INTERNET";
-    clvarlt[63] = "UNKNOWN ACTIVITIES";
+    clvarlt[61] = "General";
+    clvarlt[62] = "Fever";
+    clvarlt[63] = "Lump on Node";
     // RULE 17
-    clvarlt[65] = "SECURITY SOFTWARE";
+    clvarlt[65] = "Lump on Node";
     clvarlt[66] = "VALID USER";
     // RULE 18
     clvarlt[69] = "SECURITY SOFTWARE";
@@ -250,161 +250,161 @@ key. */
                     //MARK: if part of statement 1 */
                     /****** comment 1500 ****/
                     case 1:
-                        if(Urination == Both_frequent_urge_and_bloody){
-                            Bladder_Cancer = "YES";
+                        if(Urination_freq == "YES" && Urination_bloody == "YES"){
+                            s = 1;
                         }
                         break;
                         /* if part of statement 2 */
                         /***** comment 1510 ******/
                     case 2:
-                        if(Breast_Abnormal == "YES" && Sex == Female){
-                            Breast_Cancer = "YES";
+                        if(Urintation_bloody == "YES" && Discomfort_in_back == "YES"){
+                            s = 1;
                         }
                         break;
                         /* if part of statement 3 */
                     case 3:
-                        if(Breast_Abnormal == "YES" && Sex == Male && Family_history == "YES"){
-                            Breast_Cancer = "YES";
+                        if(Urintation_bloody == "YES" && Sex == "Male" && Lump_on_back_or_abdomen == "YES"){
+                            s = 1;
                         }
                         break;
                         /* if part of statement 4 */
                         /******** comment 1560 ******/
                     case 4:
-                        if(Bowel_Movements == Abnormal_and_blood_present){
-                            Colon_Cancer = "YES";
+                        if(Lump_on_back_or_abdomen == "YES" && Discomfort_in_back == "YES"){
+                            s = 1;
                         }
                         break;
                         /******** comment 1570 ********/
                         /* if part of statement 5 */
                     case 5:
-                        if(Bowel_Movements == Abnormal_and_blood_present && Colon_Polyp == "YES"){
-                            Colon_Cancer = "YES";
+                        if(Waxy_blemish == "YES"){
+                            s = 1;
                         }
                         break;
                         /* if part of statement 6 */
                     case 6:
-                        if(Sex == Female && Vaginal_Discharge == "YES" && Discomfort == In_the_bottom_or_pelvic_area){
-                            Endometrial_Cancer = "YES;
+                        if(Red_crusty_blemish == "YES"){
+                            s = 1;
                         }
                         break;
                     case 7:
-                        if( && Discomfort == In_the_back){
-                            Kidney_Cancer = "YES";
+                        if(Mishapen_blemish == "YES"){
+                            s = 1;
                         }
                         break;
                     case 8:
-                        if(Urination == Bloody && Discomfort == Abdomen_or_Back){
-                            Kidney_Cancer = "YES";
+                        if(Breast_abnormal == "YES" && Gender == "NO"){
+                            s = 1;
                         }
                         break;
                     case 9:
-                        if(Discomfort == In_the_back && Lump == Abdomen_or_Back){
-                            Kidney_Cancer = "YES";
+                        if(Breast_abnormal == "YES" && Gender == "NO" && Family_history == "YES"){
+                            s = 1;
                         }
                         break;
                     case 10:
-                        if(Fatigue == "YES" && Bruising == "YES" && General_Symptoms == "YES"){
-                            Leukemia = "YES";
+                        if(Bowel_movements == "YES"){
+                            s = 1;
                         }
                         break;
                     case 11:
-                        if(Appetite == Less_and/or_nauseated && Discomfort == In_the_stomach && Jaundice == "YES"){
-                            Liver_or_Pancreatic_Cancer = "YES";
+                        if(Bowel_movements == "YES" && Colon_polyps == "YES"){
+                            s = 1;
                         }
                         break;
                     case 12:
-                        if(Throat/Lungs == A_persistent_cough_and_blood && General_Symptoms == "YES"){
-                            Lung_Cancer = "YES";
+                        if(Appetite_or_nausea == "YES" && Discomfort_in_stomach == "YES" && Jaundice == "YES"){
+                            s = 1;
                         }
                         break;
                     case 13:
-                        if(Blemish ==  "NO"){
-                            Skin_Cancer = "NO";
+                        if(Appetite_or_nausea == "YES" && Weight_Loss == "YES" && Trouble_Swallowing == "YES"){
+                            s = 1;
                         }
                         break;
                     case 14:
-                        if(Blemish == A_waxy_recurring_bump){
-                            Skin_Cancer = Basal_Carcinoma;
+                        if(Lump_on_neck == "YES" && Persistent_cough == "YES"){
+                            s = 1;
                         }
                         break;
                     case 15:
-                        if((Blemish == A_red_and_crusty_bump){
-                            Skin_Cancer = Squamous_Carcinoma;
+                        if((Cough_blood == "YES"){
+                            s = 1;
                         }
                         break;
                     case 16:
-                        if((Blemish == A_misshapen_and/or_discolored_bump){
-                            Skin_Cancer = Melanoma;
+                        if((Gender == "YES" && Discomfort_in_pelvic_area == "YES"){
+                            s = 1;
                         }
                         break;
                     case 17:
-                        if(General_Symptoms == "YES" && Night_Sweating == "YES"){
-                            Lymphoma = "YES";
+                        if(Gender == "NO" && Discomfort_in_pelvic_area == "YES"){
+                            s = 1;
                         }
                         break;
                     case 18:
-                        if(Lump == Lymph_Nodes && General_Symptoms == "YES"){
-                            Lymphoma = "YES";
+                        if(Fever == "YES" && Appetite_or_nausea == "YES"){
+                            s = 1;
                         }
                         break;
                     case 19:
-                        if(Appetite == Less_and/or_nauseated && Throat/Lungs == Trouble_swallowing && Weight_Loss == "YES"){
-                            Esophageal_Cancer = "YES";
+                        if(Appetite_less_nauseated == "YES" && Trouble_swallowing == "YES" && Weight_Loss == "YES"){
+                            s = 1;
                         }
                         break;
                     case 20:
-                        if(Sex == Male && Discomfort == In_the_bottom_or_pelvic_area && Urination == Frequent_urge){
-                            Prostate_Cancer = "Yes";
+                        if(Male == "YES" && Discomfort_in_the_bottom_or_pelvic_area == "YES" && Frequent_urge == "YES"){
+                            s = 1;
                         }
                         break;
                     case 21:
-                        if(Lump == Neck && Throat/Lungs == A_persistent_cough){
-                            Thyroid_Cancer = "YES";
+                        if(Lump_in_neck == "YES" && Throat/Lungs == A_persistent_cough){
+                            s = 1;
                         }
                         break;
                     case 22:
                         if(Appetite == Less_and/or_nauseated){
-                            General_Symptoms = "YES";
+                            s = 1;
                         }
                         break;
                     case 23:
                         if(Chills/Fever == "YES"){
-                            General_Symptoms = "YES";
+                            s = 1;
                         }
                         break;
                     case 24:
                         if(Fatigue == "YES"){
-                            General_Symptoms = "YES";
+                            s = 1;
                         }
                         break;
                     case 25:
                         if(Weight_Loss == "YES"){
-                            General_Symptoms = "YES";
+                            s = 1;
                         }
                         break;
                     case 26:
                         if(Lump == Neck){
-                            General_Symptoms = "YES";
+                            s = 1;
                         }
                         break;
                     case 27:
                         if((Discomfort == In_the_bottom_or_pelvic_area && Urination == Frequent_urge){
-                            General_Symptoms = "YES";
+                            s = 1;
                         }
                         break;
                     case  28:
                         if(Breast_Abnormal == "YES"){
-                            General_Symptoms = "YES";
+                            s = 1;
                         }
                         break;
                     case 29:
                         if(Blemish != No){
-                            General_Symptoms = "YES";
+                            s = 1;
                         }
                         break;
                     case 30:
                         if(Urination == Bloody){
-                            General_Symptoms = "YES";
+                            s = 1;
                         }
                         break;
 
@@ -436,54 +436,78 @@ key. */
                     /* then part of statement 1 */
                     /******* comment 1500 *******/
                     case 1:
-                        problem = "CNP";
+                        problem = "Bladder Cancer";
                         std::cout << "PROBLEM: " << problem;
                         break;
                         /* then part of statement 2 */
                         /****** comment 1510 ******/
                     case 2 ... 4:
-                        problem = "HSI";
+                        problem = "Kidney Cancer";
                         std::cout << "PROBLEM: " << problem;
                         break;
                         /* then part of statement 3 */
                     case 5:
-                        problem = "MAL";
+                        problem = "Basal Carcinoma";
                         std::cout << "PROBLEM: " << problem;
                         break;
                         /* then part of statement 6 */
                     case 6:
-                        securitySoftware = "NO";
+                        securitySoftware = "Squamous Carcinoma";
                         std::cout << "SECURITY SOFTWARE: " << securitySoftware;
                         break;
-                    case 7 ... 10:
-                        problem = "MAL";
+                    case 7:
+                        problem = "Melanoma";
+                        std::cout << "PROBLEM: " << problem;
+                        break;
+                    case 8:
+                        problem = "Breast Cancer";
+                        std::cout << "PROBLEM: " << problem;
+                        break;
+                    case 9:
+                        problem = "Breast Cancer";
+                        std::cout << "PROBLEM: " << problem;
+                        break;
+                    case 10:
+                        problem = "Colon Cancer";
                         std::cout << "PROBLEM: " << problem;
                         break;
                     case 11:
-                        problem = "DOS";
+                        problem = "Colon Cancer";
                         std::cout << "PROBLEM: " << problem;
                         break;
                     case 12:
-                        problem = "MAL";
+                        problem = "Liver or Pancreatic Cancer";
                         std::cout << "PROBLEM: " << problem;
                         break;
-                    case 13 ... 14:
-                        problem = "DOS";
+                    case 13:
+                        problem = "Esophageal Cancer";
                         std::cout << "PROBLEM: " << problem;
                         break;
-                    case 15 ... 16:
-                        problem = "MAL";
+                    case 14:
+                        problem = "Thyroid Cancer";
                         std::cout << "PROBLEM: " << problem;
                         break;
-                    case 17 ... 18:
-                        problem = "ITG";
+                    case 15:
+                        problem = "Lung Cancer";
                         std::cout << "PROBLEM: " << problem;
                         break;
-                    case 19 ... 25:
-                        problem = "MAL";
+                    case 16:
+                        problem = "Prostate Cancer";
                         std::cout << "PROBLEM: " << problem;
                         break;
-                    case 26:
+                    case 17:
+                        problem = "Endometrial Cancer";
+                        std::cout << "PROBLEM: " << problem;
+                        break;
+                    case 18:
+                        problem = "Lymphoma";
+                        std::cout << "PROBLEM: " << problem;
+                        break;
+                    case 19:
+                        problem = "Lymphoma";
+                        std::cout << "PROBLEM: " << problem;
+                        break;
+                    case 20:
                         problem = "CON";
                         std::cout << "PROBLEM: " << problem;
                         break;
@@ -563,71 +587,71 @@ variable list (varlt) contains the variable (varble). */
             /* input statements for sample position knowledge
                base */
             /***** comment 1700 ******/
-            case 1: std::cout << "Is your machine failing to power on? INPUT YES OR NO... \n";
-                wontStart = yesOrNoValidation();
+            case 1: std::cout << "Is your Urination Frequent?INPUT YES OR NO... \n";
+                Urination_freq = yesOrNoValidation();
                 break;
-            case 2: std::cout << "IS THE POWER CABLE PLUGGED IN? INPUT YES OR NO... \n";
-                powerCord = yesOrNoValidation();
+            case 2: std::cout << "Is your Urination Bloody?INPUT YES OR NO... \n";
+                Urination_bloody = yesOrNoValidation();
                 break;
-            case 3: std::cout << "Is your hardware old? INPUT YES OR NO... \n";
-                hardwareAge = yesOrNoValidation();
+            case 3: std::cout << "Do you have discomfort in your back? INPUT YES OR NO... \n";
+                Discomfort_in_back = yesOrNoValidation();
                 break;
-            case 4: std::cout << "Does your computer keep crashing? INPUT YES OR NO... \n";
-                computerCrashing = yesOrNoValidation();
+            case 4: std::cout << "Do you have a lump on your abdomen or back? INPUT YES OR NO... \n";
+                Lump_on_back_or_abdomen = yesOrNoValidation();
                 break;
-            case 5: std::cout << "Is your software up-to-date? INPUT YES OR NO... \n";
-                softwareUpToDate = yesOrNoValidation();
+            case 5: std::cout << "Do you have a waxy and recurring bump on your skin? INPUT YES OR NO... \n";
+                Waxy_blemish = yesOrNoValidation();
                 break;
-            case 6: std::cout << "Do you have any antivirus software installed? INPUT YES OR NO... \n";
-                antiVirus = yesOrNoValidation();
+            case 6: std::cout << "Do you have a red and crusty bump on your skin? INPUT YES OR NO... \n";
+                Red_crusty_blemish = yesOrNoValidation();
                 break;
-            case 7: std::cout << "Do you have an active firewall? INPUT YES OR NO... \n";
-                firewall = yesOrNoValidation();
+            case 7: std::cout << "Do you have a mishapen or discolored bump on your skin? INPUT YES OR NO... \n";
+                Mishapen_blemish = yesOrNoValidation();
                 break;
-            case 8: std::cout << "Is your computer running hot when it should be asleep? INPUT YES OR NO... \n";
-                runningHot = yesOrNoValidation();
+            case 8: std::cout << "Do you notice anything abnormal about your breast? INPUT YES OR NO... \n";
+                Breast_abnormal = yesOrNoValidation();
                 break;
-            case 9: std::cout << "Are you locked out of your computer? INPUT YES OR NO... \n";
-                lockedOut = yesOrNoValidation();
+            case 9: std::cout << "Are you male or femail? INPUT YES FOR MALE OR NO FOR FEMALE... \n";
+                Gender = yesOrNoValidation();
                 break;
-            case 10: std::cout << "Have you lost control of your computer? INPUT YES OR NO... \n";
-                lostControl = yesOrNoValidation();
+            case 10: std::cout << "Do you have a family history of breast cancer? INPUT YES OR NO... \n";
+                Family_history = yesOrNoValidation();
                 break;
-            case 11: std::cout << "Have you received a message asking for money to unlock your computer? INPUT YES OR NO... \n";
-                ransomMessage = yesOrNoValidation();
+            case 11: std::cout << "Do you have abnormal or bloody bowel movements? INPUT YES OR NO... \n";
+                Bowel_movements = yesOrNoValidation();
                 break;
-            case 12: std::cout << "How is your server traffic. 0-5 (0low, 2.5 medium, 5 high) \n ";
-                serverVolume = std::stof(realNumberValidation());
+            case 12: std::cout << "Do you have colon polyps?";
+                Colon_polyps = realNumberValidation();
                 break;
-            case 13: std::cout << "Is your computer running unusually slow? input YES or NO) \n";
-                computerSpeed = yesOrNoValidation();
+            case 13: std::cout << "Do you have a loss of appetite or feel nauseated? input YES or NO) \n";
+                Appetite_or_nausea = yesOrNoValidation();
                 break;
-            case 14: std::cout << "Is your internet connection slow? enter YES or NO... \n";
-                internetSpeed = yesOrNoValidation();
+            case 14: std::cout << "Do you have discomfort in the stomach? enter YES or NO... \n";
+                Discomfort_in_stomach = yesOrNoValidation();
                 break;
-            case 15: std::cout << "Do you have a high volume of pop-ups? INPUT YES OR NO... \n";
-                popupVolume = yesOrNoValidation();
+            case 15: std::cout << "Are you experiencing any jaundice? INPUT YES OR NO... \n";
+                Jaundice = yesOrNoValidation();
                 break;
-            case   16: std::cout << "Do you have any unknown activities running in the background? INPUT YES OR NO... \n";
-                unknownActivitiesRunning = yesOrNoValidation();
+            case   16: std::cout << "Are you experiencing any unintentional weight loss? INPUT YES OR NO... \n";
+                Weight_loss = yesOrNoValidation();
                 break;
-            case 17: std::cout << "Can you account for all the users who have access to your computer? INPUT YES OR NO... \n";
-                validUserActivities = yesOrNoValidation();
+            case 17: std::cout << "Are you having trouble swallowing? INPUT YES OR NO... \n";
+                Trouble_swallowing = yesOrNoValidation();
                 break;
-            case 18: std::cout << "Is your computer open for public use? INPUT YES OR NO... \n";
-                publicUsage = yesOrNoValidation();
+            case 18: std::cout << "Do you have a persistent cough? INPUT YES OR NO... \n";
+                Persistent_cough = yesOrNoValidation();
                 break;
-            case 19: std::cout << "Have you clicked on any suspicious links attached to an email? INPUT YES OR NO... \n";
-                suspiciousEmail = yesOrNoValidation();
+            case 19: std::cout << "Do you have a lump on your lymph node? INPUT YES OR NO... \n";
+                Lump_on_lymph_node = yesOrNoValidation();
                 break;
-            case 20: std::cout << "Have you clicked on any suspicious links sent from known contacts? INPUT YES OR NO... \n";
-                suspiciousLink = yesOrNoValidation();
+            case 20: std::cout << "Are you coughing blood? INPUT YES OR NO... \n";
+                Cough_blood = yesOrNoValidation();
                 break;
-            case 21: std::cout << "Have you clicked on any links or downloads from a user posted on a credible site? INPUT YES OR NO... \n";
-                credibleLink = yesOrNoValidation();
+            case 21: std::cout << "Do you have discomfort in the bottom or pelvic area? INPUT YES OR NO... \n";
+                Discomfort_in_pelvic_area = yesOrNoValidation();
                 break;
-            case 22: std::cout << "Have you made any purchases online from an insecure website? INPUT YES OR NO... \n";
-                onlinePurchase = yesOrNoValidation();
+            case 22: std::cout << "Do you night sweats or chills and a fever throughout the day? INPUT YES OR NO... \n";
+                Fever = yesOrNoValidation();
                 break;
             case 23: std::cout << "Have you clicked on any pop-up links? INPUT YES OR NO... \n";
                 popupLink = yesOrNoValidation();

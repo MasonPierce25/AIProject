@@ -1,5 +1,12 @@
 # AIProject
-Project for AI
+
+Compilation and Running Instructions:
+Download and move files into school linux server using filezilla.
+Compile using command: "make"
+Run using command: "./a.out"
+Rerun using command: "./a.out"
+
+Project for AI:
 This is a model for an Abstract Expert System.
 This system represents information of a maximum of 64 variables of 4 states and a maximum of 256 rules.
 The text of these variables is imported from a .txt files and mapped onto their respective variables, this provides English-Readable input.

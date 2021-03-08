@@ -289,6 +289,14 @@ bool ExpertSystem::isInitialized(uint8_t variable){
     return (intializedFlag>>(variable>>2))&1==1;
 }
 
+std::string ExpertSystem::getVariableName(uint8_t var){
+    return variableNames[var>>2];
+}
+
+std::string ExpertSystem::getVariableStateName(uint8_t var){
+    return variableStateNames[var];
+}
+
 //gieve a var/value pair, replaces the value with user input @ var address
 uint8_t ExpertSystem::requestVariableFromUser(uint8_t value){
     //removes the value from a Variable/Value pair that makes up Antecdents and Consequents (only need first 6 bits)

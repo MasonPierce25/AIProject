@@ -1,0 +1,75 @@
+v Cancer ? No Yes - -
+v Bladder_Cancer ? No Yes - -
+v Breast_Cancer ? No Yes - -
+v Colon_Cancer ? No Yes - -
+v Endometrial_Cancer ? No Yes - -
+v Kidney_Cancer ? No Yes - -
+v Leukemia ? No Yes - -
+v Liver_or_Pancreatic_Cancer ? No Yes - -
+v Lung_Cancer ? No Yes - -
+v Skin_Cancer ? No Basal_Carcinoma Squamous_Carcinoma Melanoma
+v Lymphoma ? No Yes - -
+v Esophageal_Cancer ? No Yes - -
+v Prostate_Cancer ? No Yes - -
+v Thyroid_Cancer ? No Yes - -
+v General_Symptoms ? No Yes - -
+
+v Urination How_is_your_urination? Normal Frequent_urge Bloody Both_frequent_urge_and_bloody
+v Breast_Abnormal Have_you_noticed_anything_abnormal_with_your_breast? No Yes - -
+v Bowel_Movements How_are_your_bowel_movements? Normal Abnormal_and_blood_present - -
+v Vaginal_Discharge Have_you_noticed_any_vaginal_discharge? No Yes - -
+v Weight_Loss Have_you_lost_any_weight_unintentionally? No Yes - -
+v Fatigue Have_you_experienced_more_fatigue_than_usual? No Yes - -
+v Bruising Have_you_experienced_abnormal_bruising? No Yes - -
+v Jaundice Have_you_experienced_Jaundice_or_similar_symptoms? No Yes - -
+v Lump Have_you_noticed_and_lumps? No Neck Lymph_Nodes Abdomen_or_Back
+v Throat/Lungs Have_you_noticed_any_throat_or_lung_issues? No A_persistent_cough A_persistent_cough_and_blood Trouble_swallowing
+v Blemish Have_you_noticed_any_skin_abnormalities? No A_waxy_recurring_bump A_red_and_crusty_bump A_misshapen_and/or_discolored_bump
+v Night_Sweating Have_you_experienced_abnormal_night_sweating? No Yes - -
+v Appetite How_has_your_appetite_been? Normal Less_and/or_nauseated - -
+v Sex What_is_your_biological_sex? Male Female - -
+v Discomfort Do_you_have_any_discomfort? No In_the_back In_the_bottom_or_pelvic_area In_the_stomach
+v Family_History Do_you_have_a_family_history_of_cancer? No Yes - -
+v Colon_Polyp Have_you_any_colon_polyps? No Yes - -
+v Chills/Fever Have_you_had_any_chills_or_fevers_not_the_result_of_infection? No Yes - -
+
+r Bladder_Cancer Yes - - - Cancer Yes
+r Breast_Cancer Yes - - - Cancer Yes
+r Colon_Cancer Yes - - - Cancer Yes
+r Endometrial_Cancer Yes - - - Cancer Yes
+r Kidney_Cancer Yes - - - Cancer Yes
+r Leukemia Yes - - - Cancer Yes
+r Liver_or_Pancreatic_Cancer Yes - - - Cancer Yes
+r Lung_Cancer Yes - - - Cancer Yes
+r Skin_Cancer Basal_Carcinoma - - - Cancer Yes
+r Skin_Cancer Squamous_Carcinoma Melanoma - - - Cancer Yes
+r Skin_Cancer Melanoma - - - Cancer Yes
+r Lymphoma Yes - - - Cancer Yes
+r Esophageal_Cancer Yes - - - Cancer Yes
+r Prostate_Cancer Yes - - - Cancer Yes
+r Thyroid_Cancer Yes - - - Cancer Yes
+r Urination Both_frequent_urge_and_bloody - - - Bladder_Cancer Yes
+r Breast_Abnormal Yes Sex Female - - Breast_Cancer Yes
+r Breast_Abnormal Yes Sex Male Family_History Yes - Breast_Cancer Yes
+r Bowel_Movements Abnormal_and_blood_present - - - Colon_Cancer Yes
+r Bowel_Movements Abnormal_and_blood_present Colon_Polyp Yes - - Colon_Cancer Yes
+r Sex Female Vaginal_Discharge Yes Discomfort In_the_bottom_or_pelvic_area - Endometrial_Cancer Yes
+r Urination Bloody Discomfort In_the_back - - Kidney_Cancer Yes
+r Urination Bloody Lump Abdomen_or_Back - - Kidney_Cancer Yes
+r Discomfort In_the_back Lump Abdomen_or_Back - - Kidney_Cancer Yes
+r Fatigue Yes Bruising Yes General_Symptoms Yes - Leukemia Yes
+r Appetite Less_and/or_nauseated Discomfort In_the_stomach Jaundice Yes - Liver_or_Pancreatic_Cancer Yes
+r Throat/Lungs A_persistent_cough_and_blood General_Symptoms Yes - - Lung_Cancer Yes
+r Blemish No - - - Skin_Cancer No
+r Blemish A_waxy_recurring_bump - - - Skin_Cancer Basal_Carcinoma
+r Blemish A_red_and_crusty_bump - - - Skin_Cancer Squamous_Carcinoma
+r Blemish A_misshapen_and/or_discolored_bump - - - Skin_Cancer Melanoma
+r General_Symptoms Yes Night_Sweating Yes - - Lymphoma Yes
+r Lump Lymph_Nodes General_Symptoms Yes - - Lymphoma Yes
+r Appetite Less_and/or_nauseated Throat/Lungs Trouble_swallowing Weight_Loss Yes - Esophageal_Cancer Yes
+r Sex Male Discomfort In_the_bottom_or_pelvic_area Urination Frequent_urge - Prostate_Cancer Yes
+r Lump Neck Throat/Lungs A_persistent_cough - - Thyroid_Cancer Yes
+r Appetite Less_and/or_nauseated - - - General_Symptoms Yes
+r Chills/Fever Yes - - - General_Symptoms Yes
+r Fatigue Yes - - - General_Symptoms Yes
+r Weight_Loss Yes - - - General_Symptoms Yes

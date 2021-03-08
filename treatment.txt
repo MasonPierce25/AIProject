@@ -1,0 +1,79 @@
+v Cancer ? No Yes - -
+v Bladder_Cancer ? No Yes - -
+v Breast_Cancer ? No Yes - -
+v Colon_Cancer ? No Yes - -
+v Endometrial_Cancer ? No Yes - -
+v Kidney_Cancer ? No Yes - -
+v Leukemia ? No Yes - -
+v Liver_or_Pancreatic_Cancer ? No Yes - -
+v Lung_Cancer ? No Yes - -
+v Skin_Cancer ? No Basal_Carcinoma Squamous_Carcinoma Melanoma
+v Lymphoma ? No Yes - -
+v Esophageal_Cancer ? No Yes - -
+v Prostate_Cancer ? No Yes - -
+v Thyroid_Cancer ? No Yes - -
+
+v Surgery ? No Yes - -
+v Ablation ? No Yes - -
+v Radiation_Therapy ? No Yes - -
+v Transplant ? No Yes - -
+v Chemotherapy ? No Yes Targeted -
+v Immunotherapy ? No Yes - -
+
+
+r Bladder_Cancer Yes Cancer Yes - - Surgery Yes
+r Bladder_Cancer Yes Cancer Yes - - Chemotherapy Yes
+r Bladder_Cancer Yes Cancer Yes - - Immunotherapy Yes
+
+r Breast_Cancer Yes Cancer Yes - - Chemotherapy Yes
+r Breast_Cancer Yes Cancer Yes - - Surgery Yes
+
+r Colon_Cancer Yes Cancer Yes - - Chemotherapy Yes
+r Colon_Cancer Yes Cancer Yes - - Radiation_Therapy Yes
+r Colon_Cancer Yes Cancer Yes - - Surgery Yes
+
+r Endometrial_Cancer Yes Cancer Yes - - Chemotherapy Yes
+r Endometrial_Cancer Yes Cancer Yes - - Radiation_Therapy Yes
+r Endometrial_Cancer Yes Cancer Yes - - Surgery Yes
+
+r Kidney_Cancer Yes Cancer Yes - - Chemotherapy Targeted
+r Kidney_Cancer Yes Cancer Yes - - Surgery Yes
+r Kidney_Cancer Yes Cancer Yes - - Radiation_Therapy Yes
+
+r Leukemia Yes Cancer Yes - - Chemotherapy Yes
+r Leukemia Yes Cancer Yes - - Radiation_Therapy Yes
+
+r Liver_or_Pancreatic_Cancer Yes Cancer Yes - - Surgery Yes
+r Liver_or_Pancreatic_Cancer Yes Cancer Yes - - Ablation Yes
+r Liver_or_Pancreatic_Cancer Yes Cancer Yes - - Transplant Yes
+
+r Lung_Cancer Yes Cancer Yes - - Chemotherapy Yes
+r Lung_Cancer Yes Cancer Yes - - Radiation_Therapy Yes
+r Lung_Cancer Yes Cancer Yes - - Surgery Yes
+
+r Skin_Cancer Melanoma Cancer Yes - - Surgery Yes
+r Skin_Cancer Melanoma Cancer Yes - - Ablation Yes
+r Skin_Cancer Melanoma Cancer Yes - - Immunotherapy Yes
+
+r Skin_Cancer Basal_Carcinoma Cancer Yes - - Surgery Yes
+r Skin_Cancer Basal_Carcinoma Cancer Yes - - Ablation Yes
+
+r Skin_Cancer Squamous_Carcinoma Cancer Yes - - Surgery Yes
+r Skin_Cancer Squamous_Carcinoma Cancer Yes - - Ablation Yes
+
+r Lymphoma Yes Cancer Yes - - Chemotherapy Yes
+r Lymphoma Yes Cancer Yes - - Radiation_Therapy Yes
+r Lymphoma Yes Cancer Yes - - Surgery Yes
+
+r Esophageal_Cancer Yes Cancer Yes - - Surgery Yes
+r Esophageal_Cancer Yes Cancer Yes - - Chemotherapy Yes
+r Esophageal_Cancer Yes Cancer Yes - - Radiation_Therapy Yes
+r Esophageal_Cancer Yes Cancer Yes - - Ablation Yes
+
+r Prostate_Cancer Yes Cancer Yes - - Surgery Yes
+r Prostate_Cancer Yes Cancer Yes - - Radiation_Therapy Yes
+r Prostate_Cancer Yes Cancer Yes - - Ablation Yes
+
+r Thyroid_Cancer Yes Cancer Yes - - Chemotherapy Yes
+r Thyroid_Cancer Yes Cancer Yes - - Radiation_Therapy Yes
+r Thyroid_Cancer Yes Cancer Yes - - Surgery Yes

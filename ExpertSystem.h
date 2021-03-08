@@ -76,15 +76,6 @@ private:
     //Array of 64 questions to ask the user when initialization is need for a variable
     std::string *variableUserQuestions;
     
-    /*
-     * Private Methods
-     */
-    //returns if initialized
-    bool isInitialized(uint8_t variable);
-    //sets a variable to initialized
-    void setInitialized(uint8_t variable,bool init);
-    
-    
 public:
     //removes all facts from the fact base
     void clearFactBase();
@@ -116,6 +107,14 @@ public:
     void enactRule(Rule &rule);
     //sets variables using two distinct names
     void setVariableByString(std::string,std::string);
+    //returns if initialized
+    bool isInitialized(uint8_t variable);
+    //sets a variable to initialized
+    void setInitialized(uint8_t variable,bool init);
+    // returns the string of a variable name
+    std::string getVariableName(uint8_t);
+    // returns the string of a variable state name
+    std::string getVariableStateName(uint8_t);
 
 };
 

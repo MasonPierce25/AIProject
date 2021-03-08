@@ -5,4 +5,4 @@ main.o: main.cpp ExpertSystem.h
 	g++ -std=c++11 -c main.cpp
 
 ExpertSystem.o: ExpertSystem.h ExpertSystem.cpp
-	g++ -std=c++11 -c Expert
+	g++ -std=c++11 -c ExpertSystem.cpp

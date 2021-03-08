@@ -1,10 +1,8 @@
-CFLAGS=-O3 -std=c++11
+all: main.o ExpertSystem.o
+g++ -std=c++11 main.o ExpertSystem.o ExpertSystem
 
-expertsystem: main.o ExpertSystem.o
-g++ $(CFLAGS) main.o ExpertSystem.o -o expertsystem
-
-main.o: ExpertSystem.h main.cpp
-	g++ $(CFLAGS) -c main main.cpp
+main.o: main.cpp ExpertSystem.h
+	g++ -std=c++11 -c main.cpp
 
 ExpertSystem.o: ExpertSystem.h ExpertSystem.cpp
-	g++ $(CFLAGS) -c expertsystem ExpertSystem.cpp
+	g++ -std=c++11 -c ExpertSystem.cpp

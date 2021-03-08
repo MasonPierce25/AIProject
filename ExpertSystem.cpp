@@ -1,5 +1,5 @@
 /* 
- * File:   RuleBase.cpp
+ * File:   ExpertSystem.cpp
  * Author: Avery Wylin
  * 
  * Created on February 6, 2021, 9:30 PM
@@ -21,13 +21,14 @@
  * Contains the Rule Base and all appropriate methods
  */
 
-ExpertSystem::ExpertSystem()
+ExpertSystem::ExpertSystem(std::string dataFile)
 {
     //initialize
     ruleBase = new Rule[256]();
     factBase = new uint8_t[16];
     intializedFlag=0x00000000;
     variableNames = new std::string[64];
+    variableUserQuestions = new std::string[64];
     variableStateNames = new std::string[256];
     
     //overwrites garbage data
@@ -35,7 +36,7 @@ ExpertSystem::ExpertSystem()
     clearRuleBase();
     
     
-    loadFile();
+    loadFile(dataFile);
     
 }
 
@@ -47,13 +48,14 @@ ExpertSystem::~ExpertSystem() {
     delete[] factBase;
     delete[] variableNames;
     delete[] variableStateNames;
+    delete[] variableUserQuestions;
 }
 
-void ExpertSystem::loadFile(){
+void ExpertSystem::loadFile(std::string file){
     //wipe ALL file data before a load
     clearAllData();
     
-    std::ifstream dataFile("data.txt");
+    std::ifstream dataFile(file);
     
     //statistic variables
     int varCount=1;
@@ -77,15 +79,16 @@ void ExpertSystem::loadFile(){
             case 'v'://creates a new variable
                 if(varCount<64){
                     
-                    for(int i=0;i<5;i++){
+                    dataFile>>variableNames[varCount];
+                    dataFile>>variableUserQuestions[varCount];
+                    varMap.insert(std::pair<std::string,int>(variableNames[varCount],varCount));
+                    
+                    for(int i=0;i<4;i++){
                         dataFile>>names[i];
                     }
                     
-                    
-                    varMap.insert(std::pair<std::string,int>(names[0],varCount));
-                    variableNames[varCount]=names[0];
                     for(int i=0;i<4;i++){
-                        variableStateNames[4*varCount+i]=names[i+1];
+                        variableStateNames[4*varCount+i]=names[i];
                     }
                     varCount++;
                 }
@@ -149,13 +152,14 @@ void ExpertSystem::loadFile(){
     }
     
     //remove all undescores frome names
-//    int i=0;
-//    for(;variableNames[i]!="-";i++){
-//        std::replace(variableNames[i].begin(),variableNames[i].end(),'_',' ');
-//        for(int j=0;j<4;j++){
-//            std::replace(variableStateNames[i*4+j].begin(),variableStateNames[i*4+j].end(),'_',' ');
-//        }
-//    }
+    int i=0;
+    for(;variableNames[i]!="";i++){
+        std::replace(variableNames[i].begin(),variableNames[i].end(),'_',' ');
+        std::replace(variableUserQuestions[i].begin(),variableUserQuestions[i].end(),'_',' ');
+        for(int j=0;j<4;j++){
+            std::replace(variableStateNames[i*4+j].begin(),variableStateNames[i*4+j].end(),'_',' ');
+        }
+    }
     
     dataFile.close();
 }
@@ -177,7 +181,7 @@ void ExpertSystem::clearFactBase(){
     for(int i=0;i<16;i++){
         factBase[i]=0;
     }
-    intializedFlag=0;
+    intializedFlag=0x00000000;
 }
 
 void ExpertSystem::clearRuleBase(){
@@ -189,6 +193,7 @@ void ExpertSystem::clearRuleBase(){
 void ExpertSystem::clearAllData(){
     for(int i=0;i<64;i++){
         variableNames[i]="";
+        variableUserQuestions[i]="";
     }
     for(int i=0;i<256;i++){
         variableStateNames[i]="-";
@@ -289,7 +294,7 @@ uint8_t ExpertSystem::requestVariableFromUser(uint8_t value){
     //removes the value from a Variable/Value pair that makes up Antecdents and Consequents (only need first 6 bits)
     //we must do this so the values in the VariableNames are correct
     value>>=2;
-    std::cout<< variableNames[value] <<"?\n";
+    std::cout<< variableUserQuestions[value] <<"\n";
     for(int i=0;i<4;i++){
         if(variableStateNames[value*4+i]!="-")
             std::cout<<i<<". "<<variableStateNames[value*4+i]<<"   ";
@@ -333,10 +338,36 @@ uint8_t ExpertSystem::getVariable(uint8_t variable){
     return (variable&0xFC)|((factBase[index/4]>>(index%4*2))&0x3);
 }
 
+void ExpertSystem::setVariableByString(std::string var,std::string state){
+    bool varFound = false;
+    bool stateFound = false;
+    for(int i=0;i<64 && variableNames[i]!="";i++){
+        if(variableNames[i]==var){
+            varFound = true;
+            for(int j=0;j<4;j++){
+                if(variableStateNames[i*4+j]==state){
+                    stateFound=true;
+                    setVariable(i*4+j);
+                    break;
+                }
+            }
+            break;
+        }
+    }
+    if(!varFound){
+        std::cout<<"Error: Variable "<<var<<" is not in the system."<<std::endl;
+    }
+    else if(!stateFound){
+        std::cout<<"Error: Variable State "<<state<<" is not in the system."<<std::endl;
+    }
+}
+
+
 void ExpertSystem::forwardChain(uint8_t startFact){
     std::queue<uint8_t> consequentQueue = std::queue<uint8_t>();
-    //request the variable from the user and push it onto the queue
-    startFact = requestVariableFromUser(startFact);
+    //request the variable from the user and push it onto the queue if not initialized
+    if(!isInitialized(startFact))
+        startFact = requestVariableFromUser(startFact);
     consequentQueue.push(startFact);
 
     uint8_t currentFact;
@@ -403,12 +434,17 @@ void ExpertSystem::backwardsChain(uint8_t goalFact) {
     for (uint8_t i = 0; !(ruleBase[i] == EMPTY_RULE); i++) {
         if (ruleBase[i].containsConsequent(goalFact))
             recursiveBackwards(i);
+        //we want to stop calling each possible branch in the case it is initialized
+        if(isInitialized(goalFact))
+            break;
     }
     
 }
 
 //simple recursuve helper function for backwards chaining
 void ExpertSystem::recursiveBackwards(uint8_t currentRule){
+    if(!verifyRule(ruleBase[currentRule])) //the rule is not going to be true
+        return;
     for(int i=0;i<4;i++){
         uint8_t currentAntecedent = 0xff & (ruleBase[currentRule].antecedents >> (8 * i));
         if(currentAntecedent==NULL_VAR)//In the case that there is no Variable in the current slot
@@ -424,6 +460,6 @@ void ExpertSystem::recursiveBackwards(uint8_t currentRule){
             requestVariableFromUser(currentAntecedent); //the Antecedent can not be determined through inference, ask the user
         }
     }
-    enactRule(ruleBase[currentRule]); //When all the recursion is done the current rule will have all antecedents initialized, it can thus inference its consequent
+    enactRule(ruleBase[currentRule]); //When all the recursion is done the current rule will have all possible antecedents initialized, it can thus inference its consequent
 }
 

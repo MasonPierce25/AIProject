@@ -1,5 +1,5 @@
 /* 
- * File:   RuleBase.h
+ * File:   ExpertSystem.h
  * Author: Avery Wylin
  *
  * Created on February 6, 2021, 9:30 PM
@@ -13,7 +13,7 @@
 
 class ExpertSystem {
 public:
-    ExpertSystem();
+    ExpertSystem(std::string);
     ExpertSystem(const ExpertSystem& orig);
     virtual ~ExpertSystem();
     
@@ -73,6 +73,8 @@ private:
     std::string *variableNames;
     //Array of 256 variable state names, each variable has 4 possible states
     std::string *variableStateNames;
+    //Array of 64 questions to ask the user when initialization is need for a variable
+    std::string *variableUserQuestions;
     
     /*
      * Private Methods
@@ -107,11 +109,13 @@ public:
     //verifies if a rule is true
     bool verifyRule(Rule &rule);
     //load data from file
-    void loadFile();
+    void loadFile(std::string file);
     //a helper function for backwards chaining
     void recursiveBackwards(uint8_t ruleIndex);
     //uses a rule to make an inference
     void enactRule(Rule &rule);
+    //sets variables using two distinct names
+    void setVariableByString(std::string,std::string);
 
 };
 

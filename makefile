@@ -1,8 +1,8 @@
-all: main.o ExpertSystem.o
-	g++ -std=c++11 main.o ExpertSystem.o
+all: Project1-ID-main.o Project1-ID-ExpertSystem.o
+	g++ -std=c++11 Project1-ID-main.o Project1-ID-ExpertSystem.o
 
-main.o: main.cpp ExpertSystem.h
-	g++ -std=c++11 -c main.cpp
+Project1-ID-main.o: Project1-ID-main.cpp ExpertSystem.h
+	g++ -std=c++11 -c Project1-ID-main.cpp
 
-ExpertSystem.o: ExpertSystem.h ExpertSystem.cpp
-	g++ -std=c++11 -c ExpertSystem.cpp
+Project1-<ID>-ExpertSystem.o: ExpertSystem.h Project1-ID-ExpertSystem.cpp
+	g++ -std=c++11 -c Project1-ID-ExpertSystem.cpp

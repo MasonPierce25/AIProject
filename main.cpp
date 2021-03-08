@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
         //extract the last 2 bits and ensure they are not 0
         else if((systemDiagnosis.getVariable(transferVar)&0x3)!=0){
             //the variable is true, print it to the user and transfer it
-            cout<<systemDiagnosis.getVariableName(transferVar)<<endl;
+            cout<<systemDiagnosis.getVariableName(transferVar)<<": "<<systemDiagnosis.getVariableStateName(systemDiagnosis.getVariable(i<<2))<<endl;
             systemTreatment.setVariable(systemDiagnosis.getVariable(transferVar));
         }
     }

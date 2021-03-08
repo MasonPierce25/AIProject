@@ -2,9 +2,9 @@
 
 Compilation and Running Instructions:
 Download and move files into school linux server using filezilla.
-Compile using command: "make"
-Run using command: "./a.out"
-Rerun using command: "./a.out"
+Compile using command: "make".
+Run using command: "./a.out".
+Rerun using command: "./a.out".
 
 Project for AI:
 This is a model for an Abstract Expert System.
